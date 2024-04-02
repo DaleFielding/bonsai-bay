@@ -34,5 +34,5 @@ class Seller(db.Model):
 
 class SavedItem(db.Model): 
     id = db.Column(db.Integer, primary_key=True)
-    item_id = db.Column(db.Integer, db.ForeignKey("item.id", ondelete="CASCADE"), nullable=True)
+    tree_id = db.Column(db.Integer, db.ForeignKey("tree.id", ondelete="CASCADE"), nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id", ondelete="CASCADE"), nullable=True)
