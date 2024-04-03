@@ -61,3 +61,36 @@ Taking into account the intended website, I have:
     * Gumtree contains a similar footer to that of the bonsai sites, but also contains a link to download their app.
 
 Following on from research, the strategy is to create a website that combines the feel of a bonsai site but with the functionality of a popular digital marketplace. The site should meet all of the expectations from the user stories, site objectives while also considering findings from the research conducted. 
+
+### Scope
+I have listed the possible features below and ranked 1-5 in level of importance/relevance to user needs (1 being most important and viable/feasible):
+
+| Possible Feature | Rank |
+|---|---|
+| Site navigation | 1 |
+| Accessibility | 1 |
+| Device/resolution responsivity | 1 |
+| Responses to user action | 1 |
+| Account login and account management | 1 |
+| Ability to create, update and delete listings | 1 |
+| Location finding | 1 |
+| Images of items for sale including relevant information | 1 | 
+| Method to contact seller | 1 |
+| Ability to save items | 1 |
+| 404 page | 1 |
+| Introduction with background image | 1 | 
+| Ability to choose location | 2 |  
+| Search function | 2 |
+| Filters to refine search; such as distance, type or price | 2 |
+| Ability to navigate by categories | 2 |
+| Footer | 3 |
+| Logo | 3 |
+| Social links | 3 |
+| Instant Messenger between buyer and seller | 3 |
+| Reviews | 5 | 
+| Blog | 5 |  
+
+As some of these features extend beyond the necessary requirements for the project and may take more time than appropriate, I will not will not currently be implementing:
+* Instant messenger
+* Reviews
+* Blog 
