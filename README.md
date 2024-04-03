@@ -139,3 +139,9 @@ I have listed the pages below including the features they will contain.
 #### 404 page:
 * Message displayed confirming user has tried to visit a page in the domain that does not exist.
 * Link/button within the page content that will direct the user to the home page.
+
+### Skeleton
+
+#### Table Schema
+
+![Table schema](resources/table-schema.png)
