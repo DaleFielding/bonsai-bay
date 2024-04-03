@@ -94,3 +94,48 @@ As some of these features extend beyond the necessary requirements for the proje
 * Instant messenger
 * Reviews
 * Blog 
+
+### Structure 
+I have listed the pages below including the features they will contain. 
+
+#### All pages:
+ * Navbar:
+  * Logo and site name, clicking on these will reload the home page.
+  * Search bar/function. 
+  * Location selection.
+  * Account button.
+ * Navigation by category.
+ * Footer:
+   * Social media links.
+   * Help/Contact Us.
+   * Categories.	
+
+#### Homepage:
+* Introduction with background image.  
+* Images of items for sale including relevant information. 
+* Item filters. 
+* Save item button. 
+
+#### Item Page:
+* Method to contact seller. 
+* More information relating to the item.
+* Save item button. 
+
+#### Account Page:
+* Account details (expands when clicked):
+  * Email displayed.
+  * Password change.
+* Listings button (expands when clicked):
+  * Create listings, clicking on this displays a modal for the data entry.
+  * Shows listings.
+  * View button. 
+  * Amend button. 
+  * Delete button.
+* Saved items button (expands when clicked):
+  * Shows saved items. 
+  * View button. 
+  * Remove button.  
+
+#### 404 page:
+* Message displayed confirming user has tried to visit a page in the domain that does not exist.
+* Link/button within the page content that will direct the user to the home page.
