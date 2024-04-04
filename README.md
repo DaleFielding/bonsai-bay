@@ -145,3 +145,25 @@ I have listed the pages below including the features they will contain.
 #### Table Schema
 
 ![Table schema](resources/table-schema.png)
+
+#### Wireframes
+
+  <details><summary>Homepage</summary>
+    <img src="resources/wireframe-homepage.png">
+  </details>
+
+  <details><summary>Homepage With Model</summary>
+    <img src="resources/wireframe-homepage-with-model.png">
+  </details>
+  
+  <details><summary>Item Page</summary>
+    <img src="resources/wireframe-item-page.png">
+  </details>
+
+  <details><summary>Account Page</summary>
+    <img src="resources/wireframe-account-page.png">
+  </details>
+
+  <details><summary>404 page</summary>
+    <img src="resources/wireframe-404-page.png">
+  </details>
