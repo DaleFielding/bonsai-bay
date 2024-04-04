@@ -5,6 +5,23 @@ The purpose of this site is to provide a platform for bonsai enthusiasts, both i
 
 (Mock-up image to be added)
 
+## Table of Contents
+1. [User Experience (UX)](#user-experience-ux)
+    - [User Stories](#user-stories)
+    - [Site Objectives](#site-objectives)
+2. [Design](#design)
+    - [Strategy](#strategy)
+    - [Scope](#scope)
+    - [Structure](#structure)
+      - [All Pages](#all-pages)
+      - [Homepage](#homepage)
+      - [Item Page](#item-page)
+      - [Account Page](#account-page)
+      - [404 Page](#404-page)
+    - [Skeleton](#skeleton)
+      - [Table Schema](#table-schema)
+      - [Wireframes](#wireframes)
+
 ## User Experience (UX)
 
 ### User Stories
