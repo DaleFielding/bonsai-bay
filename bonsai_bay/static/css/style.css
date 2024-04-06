@@ -5,6 +5,15 @@
   align-items: center;
 }
 
+:root {
+  /* Colors */
+  --my-green: #095D49;
+}
+
+* {
+  color: var(--my-green);
+}
+
 .temp-box {
   border: 1px solid rgb(5, 138, 0);
   background-color: rgb(228, 226, 212);
@@ -37,8 +46,17 @@
 
 a {
   text-decoration: none;
-  color: black;
 }
+
+/* my-green bg colour with white text */
+.btn-secondary,
+.btn-secondary i,
+#nav,
+#nav a {
+  background-color: var(--my-green);
+  color: white;
+}
+
 
 footer {
   margin-top: 2rem;
