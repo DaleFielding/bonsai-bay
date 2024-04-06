@@ -1,6 +1,7 @@
 {% extends "base.html" %} {% block content %}
 
 <div class="row">
+  <!-- Slogan with Button -->
   <div class="col-6 d-flex align-items-center justify-content-center">
     <div class="d-flex flex-column align-items-center">
       <h3 class="text-center">
@@ -11,11 +12,97 @@
     </div>
   </div>
   <div class="col-6 d-flex align-items-center justify-content-center">
+    <!-- Main Image -->
     <img
       src="{{ url_for('static', filename='assets/main-image.png') }}"
       alt="main image of a bonsai being held out by someone"
       class="main-image"
     />
+  </div>
+</div>
+<hr />
+<div class="row d-flex align-items-center justify-content-center">
+  <div class="col-10 col-md-8 col-lg-6">
+    <button class="btn btn-secondary filter-btn">Filter</button>
+  </div>
+</div>
+
+<!-- Item Cards -->
+<div class="row align-items-center justify-content-center">
+  <!-- Item Card -->
+  <div class="col-10 col-sm-6 col-md-4 col-lg-3 item-card-container">
+    <div class="item-card">
+      <div class="text-center">
+        <h6>Title</h6>
+      </div>
+      <div class="text-center">
+        <img
+          src="{{ url_for('static', filename='assets/main-image.png') }}"
+          style="max-width: 100%; height: auto"
+          class="img-fluid"
+        />
+      </div>
+    </div>
+  </div>
+  <!-- Item Card -->
+  <div class="col-10 col-sm-6 col-md-4 col-lg-3 item-card-container">
+    <div class="item-card">
+      <div class="text-center">
+        <h6>Title</h6>
+      </div>
+      <div class="text-center">
+        <img
+          src="{{ url_for('static', filename='assets/main-image.png') }}"
+          style="max-width: 100%; height: auto"
+          class="img-fluid"
+        />
+      </div>
+    </div>
+  </div>
+  <!-- Item Card -->
+  <div class="col-10 col-sm-6 col-md-4 col-lg-3 item-card-container">
+    <div class="item-card">
+      <div class="text-center">
+        <h6>Title</h6>
+      </div>
+      <div class="text-center">
+        <img
+          src="{{ url_for('static', filename='assets/main-image.png') }}"
+          style="max-width: 100%; height: auto"
+          class="img-fluid"
+        />
+      </div>
+    </div>
+  </div>
+  <!-- Item Card -->
+  <div class="col-10 col-sm-6 col-md-4 col-lg-3 item-card-container">
+    <div class="item-card">
+      <div class="text-center">
+        <h6>Title</h6>
+      </div>
+      <div class="text-center">
+        <img
+          src="{{ url_for('static', filename='assets/main-image.png') }}"
+          style="max-width: 100%; height: auto"
+          class="img-fluid"
+        />
+      </div>
+    </div>
+  </div>
+  <!-- Item Card -->
+  <div class="col-10 col-sm-6 col-md-4 col-lg-3 item-card-container">
+    <div class="item-card">
+      <div class="text-center">
+        <h6>Title</h6>
+      </div>
+      <div class="text-center">
+        <img
+          src="{{ url_for('static', filename='assets/main-image.png') }}"
+          style="max-width: 100%; height: auto"
+          class="img-fluid"
+        />
+      </div>
+    </div>
   </div>
 </div>
 
