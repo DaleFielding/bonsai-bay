@@ -34,6 +34,7 @@ a {
 }
 
 footer {
+  margin-top: 2rem;
   min-width: 100%;
   background-color: rgb(238, 238, 238);
 }
