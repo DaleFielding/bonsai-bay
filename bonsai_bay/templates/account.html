@@ -4,7 +4,7 @@
   <h4 class="col-12 text-center">Username</h4>
 </div>
 
-<section class="accordion" id="accordionPanelsStayOpenExample">
+<section class="accordion">
   <!-- Email -->
   <div class="accordion-item text-start">
     <h2 class="accordion-header">
@@ -12,19 +12,37 @@
         class="accordion-button"
         type="button"
         data-bs-toggle="collapse"
-        data-bs-target="#panelsStayOpen-collapseOne"
+        data-bs-target="#email"
         aria-expanded="true"
-        aria-controls="panelsStayOpen-collapseOne"
+        aria-controls="email"
       >
         Email
       </button>
     </h2>
-    <div
-      id="panelsStayOpen-collapseOne"
-      class="accordion-collapse collapse show"
-    >
+    <div id="email" class="accordion-collapse collapse show">
       <div class="accordion-body">
         example@email.com
+        <button class="btn btn-secondary">Edit</button>
+      </div>
+    </div>
+  </div>
+  <!-- Password -->
+  <div class="accordion-item text-start">
+    <h2 class="accordion-header">
+      <button
+        class="accordion-button"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#password"
+        aria-expanded="true"
+        aria-controls="password"
+      >
+        Password
+      </button>
+    </h2>
+    <div id="password" class="accordion-collapse collapse show">
+      <div class="accordion-body">
+        ********
         <button class="btn btn-secondary">Edit</button>
       </div>
     </div>
