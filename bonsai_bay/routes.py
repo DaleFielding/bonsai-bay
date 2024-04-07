@@ -9,3 +9,8 @@ def home():
 def account():
     return render_template("account.html")
 
+# Only for testing. Not needed in final version
+# @app.route("/404")
+# def errorpage():
+#     return render_template("404.html")
+

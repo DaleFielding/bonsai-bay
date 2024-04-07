@@ -1,10 +1,10 @@
-{% extends "base.html" %} {% block content %} 404 Intro Message
-<div class="row center-all username-displayed">
+{% extends "base.html" %} {% block content %}
+<div class="row center-all mt-5 mb-2">
   <h4 class="col-12 text-center">Sorry, page doesn't exist</h4>
 </div>
 <!-- 404 Image -->
 <div class="row justify-content-center">
-  <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+  <div class="col-12 col-sm-8 col-md-6">
     <img
       src="{{ url_for('static', filename='assets/404-image.png') }}"
       alt="main image of a bonsai being held out by someone"
@@ -15,9 +15,9 @@
 <!-- Homepage button -->
 <div class="row justify-content-center mt-4">
   <div class="col-10 col-md-8 col-lg-6">
-    <button class="btn btn-secondary btn-lg" href="{{ url_for('home') }}">
+    <a class="btn btn-secondary btn-lg" href="{{ url_for('home') }}">
       Go to homepage
-    </button>
+    </a>
   </div>
 </div>
 {% endblock %}
