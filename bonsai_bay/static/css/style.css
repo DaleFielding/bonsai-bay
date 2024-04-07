@@ -48,15 +48,17 @@ a {
   text-decoration: none;
 }
 
-/* my-green bg colour with white text */
+/* Nav + Button colouring */
 .btn-secondary,
-.btn-secondary i,
-#nav,
-#nav a {
+#nav {
   background-color: var(--my-green);
-  color: white;
+
 }
 
+.btn-secondary i,
+#nav a {
+  color: white;
+}
 
 footer {
   margin-top: 2rem;
