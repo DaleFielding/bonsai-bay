@@ -5,6 +5,14 @@
   align-items: center;
 }
 
+.container-fluid {
+  max-width: 1200px;
+}
+
+a {
+  text-decoration: none;
+}
+
 :root {
   /* Colors */
   --my-green: #095D49;
@@ -14,6 +22,7 @@
   color: var(--my-green);
 }
 
+/* Temporary to assist with layout design - REMEMBER TO DELETE */
 .temp-box {
   border: 1px solid rgb(5, 138, 0);
   background-color: rgb(228, 226, 212);
@@ -27,25 +36,20 @@
   background-color: red;
 }
 
+
+/* Logo */
 .logo {
   width: 80px;
   max-width: 25vw;
 }
 
+/* Main Image */
 .main-image {
   width: 500px;
   max-width: 50vw;
   aspect-ratio: 1/1;
   padding: 16px;
 
-}
-
-.container-fluid {
-  max-width: 1200px;
-}
-
-a {
-  text-decoration: none;
 }
 
 /* Nav + Button colouring */
@@ -60,17 +64,20 @@ a {
   color: white;
 }
 
+/* Footer  */
 footer {
   margin-top: 2rem;
   min-width: 100%;
   background-color: rgb(238, 238, 238);
 }
 
+/* Filter Button */
 .filter-btn {
   width: 100%;
   margin-bottom: 16px;
 }
 
+/* Item Cards */
 .item-card-container {
   padding: 1rem;
 }
