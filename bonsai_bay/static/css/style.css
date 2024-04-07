@@ -91,3 +91,7 @@ footer {
 .item-title {}
 
 .item-image {}
+
+.username-displayed {
+  margin: 5rem;
+}
