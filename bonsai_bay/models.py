@@ -15,6 +15,7 @@ class User(db.Model):
 
 class Tree(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(25), nullable=True)
     species = db.Column(db.String(50), nullable=True)
     tree_type = db.Column(db.String(25), nullable=True)
     indoor_outdoor = db.Column(db.String(7), nullable=True)
