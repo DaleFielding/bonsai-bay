@@ -16,6 +16,9 @@ a {
 :root {
   /* Colors */
   --my-green: #095D49;
+  --my-green-faded: #095d4942;
+  --my-lightest-grey: #f7f7f7;
+  --my-light-grey: #eeeeee;
 }
 
 * {
@@ -52,13 +55,14 @@ a {
 
 }
 
-/* Nav + Button colouring */
+/* Green Background Color */
 .btn-secondary,
 #nav {
   background-color: var(--my-green);
 
 }
 
+/* White Text */
 .btn-secondary i,
 #nav a {
   color: white;
@@ -68,7 +72,7 @@ a {
 footer {
   margin-top: 2rem;
   min-width: 100%;
-  background-color: rgb(238, 238, 238);
+  background-color: var(--my-light-grey);
 }
 
 /* Filter Button */
@@ -94,4 +98,15 @@ footer {
 
 .username-displayed {
   margin: 5rem;
+}
+
+/* Accordion  */
+.accordion-button,
+.accordion-button:not(.collapsed) {
+  color: var(--my-green);
+  background-color: var(--my-lightest-grey);
+}
+
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem var(--my-green-faded);
 }
