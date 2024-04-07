@@ -113,3 +113,8 @@ footer {
 .accordion-button:focus {
   box-shadow: 0 0 0 0.25rem var(--my-green-faded);
 }
+
+/* Browse Bonsai Button Scroll */
+html {
+  scroll-behavior: smooth;
+}
