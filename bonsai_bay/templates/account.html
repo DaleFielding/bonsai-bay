@@ -19,7 +19,7 @@
         Email
       </button>
     </h2>
-    <div id="email" class="accordion-collapse collapse show">
+    <div id="email" class="accordion-collapse collapse">
       <div class="accordion-body">
         example@email.com
         <button class="btn btn-secondary">Edit</button>
@@ -40,10 +40,164 @@
         Password
       </button>
     </h2>
-    <div id="password" class="accordion-collapse collapse show">
+    <div id="password" class="accordion-collapse collapse">
       <div class="accordion-body">
         ********
         <button class="btn btn-secondary">Edit</button>
+      </div>
+    </div>
+  </div>
+  <!-- Form -->
+  <div class="accordion-item text-start">
+    <h2 class="accordion-header">
+      <button
+        class="accordion-button"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#formCollapse"
+        aria-expanded="true"
+        aria-controls="formCollapse"
+      >
+        Create New Listing
+      </button>
+    </h2>
+    <div id="formCollapse" class="accordion-collapse collapse">
+      <div class="accordion-body">
+        <form>
+          <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              placeholder="Enter title for item to be listed"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="species" class="form-label">Species</label>
+            <input
+              type="text"
+              class="form-control"
+              id="species"
+              placeholder="Enter species of bonsai"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Type</label>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="type"
+                id="evergreen"
+                value="evergreen"
+              />
+              <label class="form-check-label" for="evergreen">
+                Evergreen
+              </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="type"
+                id="deciduous"
+                value="deciduous"
+              />
+              <label class="form-check-label mb-3" for="deciduous">
+                Deciduous
+              </label>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Indoor/Outdoor</label>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="indoor-outdoor"
+                  id="indoor"
+                  value="indoor"
+                />
+                <label class="form-check-label" for="indoor"> Indoor </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="indoor-outdoor"
+                  id="outdoor"
+                  value="outdoor"
+                />
+                <label class="form-check-label" for="outdoor"> Outdoor </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="indoor-outdoor"
+                  id="either"
+                  value="either"
+                />
+                <label class="form-check-label" for="either"> Either </label>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="height" class="form-label">Height</label>
+            <input
+              type="number"
+              class="form-control"
+              id="height"
+              placeholder="Enter height in cm"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <div class="input-group">
+              <span class="input-group-text">£</span>
+              <input
+                type="number"
+                class="form-control"
+                id="price"
+                name="price"
+                placeholder="Enter price"
+                pattern="^£?\d{0,}\.?\d{0,2}$"
+                title="Price entered should be in format such as £0.00 "
+              />
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="care-tips" class="form-label">Care Tips</label>
+            <textarea
+              class="form-control"
+              id="care-tips"
+              rows="3"
+              placeholder="Enter any care tips"
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="image" class="form-label">Item Image (upload)</label>
+            <input
+              type="file"
+              class="form-control"
+              id="image"
+              accept="image/*"
+            />
+            <small class="form-text text-muted"
+              >Only image files are accepted</small
+            >
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Add Description</label>
+            <textarea
+              class="form-control"
+              id="description"
+              rows="3"
+              placeholder="Enter plant description"
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-secondary">Submit</button>
+        </form>
       </div>
     </div>
   </div>
