@@ -5,3 +5,7 @@ from bonsai_bay import app, db
 def home():
     return render_template("index.html")
 
+@app.route("/account")
+def account():
+    return render_template("account.html")
+
