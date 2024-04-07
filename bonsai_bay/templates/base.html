@@ -22,7 +22,7 @@
       <div class="container-fluid">
         <div class="col-4 d-flex align-items-center">
           <div class="col">
-            <a href="#">
+            <a href="{{ url_for('home') }}">
               <img
                 src="{{ url_for('static', filename='assets/logo.png') }}"
                 class="logo"
@@ -30,7 +30,7 @@
             </a>
           </div>
           <div class="col-9 d-none d-md-block">
-            <a href="#"><h2>Bonsai Bay</h2></a>
+            <a href="{{ url_for('home') }}"><h2>Bonsai Bay</h2></a>
           </div>
         </div>
         <button
@@ -56,7 +56,7 @@
               <a class="nav-link" href="#">Search</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Account</a>
+              <a class="nav-link" href="{{ url_for('account') }}">Account</a>
             </li>
           </ul>
         </div>
