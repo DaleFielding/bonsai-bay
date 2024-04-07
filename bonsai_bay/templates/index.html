@@ -8,7 +8,11 @@
         Trading Tiny <br />
         Trees Together
       </h3>
-      <button class="btn btn-secondary">Browse Bonsai</button>
+      <a
+        class="btn btn-secondary"
+        href="{{ url_for('browse_bonsai') }}#browse-bonsai"
+        >Browse Bonsai</a
+      >
     </div>
   </div>
   <!-- Main Image -->
@@ -24,7 +28,9 @@
 <!-- Filter Button -->
 <div class="row center-all">
   <div class="col-10 col-md-8 col-lg-6">
-    <button class="btn btn-secondary filter-btn">Filter</button>
+    <button class="btn btn-secondary filter-btn" id="browse-bonsai">
+      Filter
+    </button>
   </div>
 </div>
 

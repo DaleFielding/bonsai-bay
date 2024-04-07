@@ -9,6 +9,10 @@ def home():
 def account():
     return render_template("account.html")
 
+@app.route("/")
+def browse_bonsai():
+    return render_template("index.html", scroll_to="browse-bonsai")
+
 # Only for testing. Not needed in final version
 # @app.route("/404")
 # def errorpage():
