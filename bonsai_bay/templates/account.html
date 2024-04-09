@@ -63,7 +63,11 @@
     </h2>
     <div id="formCollapse" class="accordion-collapse collapse">
       <div class="accordion-body">
-        <form form method="POST" action="{{ url_for('create_listing') }}">
+        <form
+          method="POST"
+          action="{{ url_for('create_listing') }}"
+          enctype="multipart/form-data"
+        >
           <div class="mb-3">
             <label for="title" class="form-label">Title</label>
             <input
@@ -173,6 +177,7 @@
             <label for="care-tips" class="form-label">Care Tips</label>
             <textarea
               class="form-control"
+              name="care-tips"
               id="care-tips"
               rows="3"
               placeholder="Enter any care tips"
@@ -227,7 +232,30 @@
       </button>
     </h2>
     <div id="listings" class="accordion-collapse collapse">
-      <div class="accordion-body">No listed items currently.</div>
+      <div class="accordion-body listings">
+        {% for listing in listings %}
+        <div class="listing">
+          <h2>{{ listing.title }}</h2>
+          <p>Species: {{ listing.species }}</p>
+          <p>Tree Type: {{ listing.tree_type }}</p>
+          <p>Indoor/Outdoor: {{ listing.indoor_outdoor }}</p>
+          <p>Description: {{ listing.description }}</p>
+          <p>Height: {{ listing.height }}</p>
+          <p>Price: {{ listing.price }}</p>
+          <p>Care Tips: {{ listing.care_tips }}</p>
+          {% if listing.encoded_image %}
+          <img
+            src="data:image/png;base64,{{ listing.encoded_image }}"
+            alt="Listing Image"
+          />
+          {% else %}
+          <p>No image available</p>
+          {% endif %}
+        </div>
+        {% endfor %} {% if not listings %}
+        <p>No listed items currently.</p>
+        {% endif %}
+      </div>
     </div>
   </div>
   <!-- Saved Items -->
