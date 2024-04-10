@@ -33,6 +33,7 @@ def account():
     # Render account page and pass listings to the template
     return render_template("account.html", listings=all_listings)
 
+
 # Create Listing
 @app.route("/create_listing", methods=["GET", "POST"])
 def create_listing():
@@ -65,7 +66,6 @@ def create_listing():
         db.session.commit()
         
         return redirect(url_for("account"))
-
 
     return render_template("account.html")
 
