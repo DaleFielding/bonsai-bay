@@ -20,18 +20,18 @@ def browse_bonsai():
 @app.route("/account")
 def account():
      # Query the database to retrieve all listings
-    all_listings = Listing.query.all()
+    listings = Listing.query.all()
     
     # Iterate over each listing to encode its image
-    for listing in all_listings:
+    for listing in listings:
         if listing.image:
             # Encode image data to Base64
             listing.encoded_image = base64.b64encode(listing.image).decode('utf-8')
         else:
             listing.encoded_image = None
     
-    # Render account page and pass listings to the template
-    return render_template("account.html", listings=all_listings)
+    # Render account page and pass listings to the template so that they can be displayed
+    return render_template("account.html", listings=listings)
 
 
 # Create Listing
