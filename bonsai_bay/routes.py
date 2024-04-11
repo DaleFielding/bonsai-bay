@@ -10,7 +10,7 @@ def home():
     return render_template("index.html")
 
 
-# Homepage - scrolled to browse_bonsai id
+# Homepage, scrolled to browse_bonsai id
 @app.route("/")
 def browse_bonsai():
     return render_template("index.html", scroll_to="browse-bonsai")
@@ -22,10 +22,9 @@ def account():
      # Query the database to retrieve all listings
     listings = Listing.query.all()
     
-    # Iterate over each listing to encode its image
+    # Iterate over each listing and encode the image
     for listing in listings:
         if listing.image:
-            # Encode image data to Base64
             listing.encoded_image = base64.b64encode(listing.image).decode('utf-8')
         else:
             listing.encoded_image = None
@@ -69,6 +68,16 @@ def create_listing():
 
     return render_template("account.html")
 
+# Delete Listing
+@app.route("/delete_listing/<int:listing_id>")
+def delete_listing(listing_id):
+    # Query the database to obtain the listing_id or display 404
+    listing = Listing.query.get_or_404(listing_id)
+    # Delete the relevant listing
+    db.session.delete(listing)
+    db.session.commit()
+    # Redirect to account template
+    return redirect(url_for("account"))
 
 # Only for testing. Not needed in final version
 # @app.route("/404")
