@@ -16,6 +16,13 @@ def browse_bonsai():
     return render_template("index.html", scroll_to="browse-bonsai")
 
 
+# Item Page
+@app.route("/item")
+def item():
+    return render_template("item.html")
+
+
+
 # Account Page
 @app.route("/account")
 def account():
@@ -68,6 +75,7 @@ def create_listing():
 
     return render_template("account.html")
 
+
 # Delete Listing
 @app.route("/delete_listing/<int:listing_id>")
 def delete_listing(listing_id):
@@ -78,6 +86,7 @@ def delete_listing(listing_id):
     db.session.commit()
     # Redirect to account template
     return redirect(url_for("account"))
+
 
 # Only for testing. Not needed in final version
 # @app.route("/404")
