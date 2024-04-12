@@ -16,20 +16,25 @@ def browse_bonsai():
     return render_template("index.html", scroll_to="browse-bonsai")
 
 
-# Item Page
-@app.route("/item/<int:listing_id>")
-def item(listing_id):
-    # Query the database to obtain the listing_id or display 404
-    listing = Listing.query.get_or_404(listing_id)
+# Item Page for styling
+@app.route("/item")
+def item():
+    return render_template("item.html")
+
+# # Item Page with listing id passed in
+# @app.route("/item/<int:listing_id>")
+# def listed_item(listing_id):
+#     # Query the database to obtain the listing_id or display 404
+#     listing = Listing.query.get_or_404(listing_id)
     
-    # Encode image if found
-    if listing.image:
-        listing.encoded_image = base64.b64encode(listing.image).decode('utf-8')
-    else:
-        listing.encoded_image = None
+#     # Encode image if found
+#     if listing.image:
+#         listing.encoded_image = base64.b64encode(listing.image).decode('utf-8')
+#     else:
+#         listing.encoded_image = None
     
-    # Render the item page and pass listings to the template so that they can be displayed
-    return render_template("item.html", listing=listing)
+#     # Render the item page and pass listings to the template so that they can be displayed
+#     return render_template("item.html", listing=listing)
 
 
 # Account Page
