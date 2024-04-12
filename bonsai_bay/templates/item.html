@@ -2,39 +2,61 @@
 
 <div class="row center-all">
   <!-- listing -->
-  <div class="col-10 col-sm-6 col-md-4 col-lg-3">
+  <div class="col-sm-10 col-md-6">
     <div class="item-card-container">
       <div class="item-card">
         <div class="listing">
-          <h6>{{ listing.title }}</h6>
+          <h6>Title</h6>
         </div>
         <div>
-          {% if listing.encoded_image %}
           <img
-            src="data:image/png;base64,{{ listing.encoded_image }}"
+            src="{{ url_for('static', filename='assets/main-image.png') }}"
             style="max-width: 100%; height: auto"
-            class="img-fluid"
-            alt="Image of listing"
           />
-          {% else %}
-          <p>No image available</p>
-          {% endif %}
-          <p>&pound;{{ listing.price }}</p>
-        </div>
-      </div>
-      <div class="row justify-content-between align-items-center">
-        <div class="col-4 pt-2 pe-0">
-          <a href="#" class="listing-btn btn btn-secondary p-0">Edit</a>
-        </div>
-        <div class="col-4 pt-2 ps-0">
-          <a
-            href="{{ url_for('delete_listing', listing_id=listing.id) }}"
-            class="listing-btn btn btn-secondary p-0"
-            >Delete
-          </a>
+          <p>&pound;50.00</p>
         </div>
       </div>
     </div>
+  </div>
+  <div class="col-sm-10 col-md-6">
+    <div class="item-description-container">
+      <div class="item-description">
+        <li><strong>Description</strong>:</li>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, fuga
+          error esse iure, veritatis accusantium saepe tempora, dolorem hic
+          suscipit adipisci unde distinctio dolorum eaque veniam? Aliquid magni
+          aliquam dolor?
+        </p>
+        <li><strong>Care Tips</strong>:</li>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae eum
+          modi voluptate earum cum ipsa necessitatibus harum incidunt optio
+          quidem soluta eos, nihil laudantium totam eveniet fugit dignissimos.
+          Aspernatur, aut!
+        </p>
+        <li><strong>Features</strong>:</li>
+        <p>
+          Species = Chinese Elm <br />
+          Type = Evergreen <br />
+          Indoor/Outdoor = Either <br />
+          Height = 50cm
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row center-all pt-2">
+  <div class="col-10 col-sm-8 col-md-6 col-lg-4 item-btn-container center-all">
+    <button href="#" class="item-btn btn btn-secondary">Message Seller</button>
+  </div>
+  <div class="col-10 col-sm-8 col-md-6 col-lg-4 item-btn-container center-all">
+    <button href="#" class="item-btn btn btn-secondary">Save Item</button>
+  </div>
+  <div class="col-10 col-sm-8 col-md-6 col-lg-4 item-btn-container center-all">
+    <button href="#" class="item-btn btn btn-secondary">
+      Back to Homepage
+    </button>
   </div>
 </div>
 
