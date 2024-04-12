@@ -237,24 +237,29 @@
       {% for listing in listings %}
       <div class="col-10 col-sm-6 col-md-4 col-lg-3">
         <div class="item-card-container">
-          <div class="item-card">
-            <div class="listing">
-              <h6>{{ listing.title }}</h6>
+          <a
+            href="{{ url_for('item', listing_id=listing.id) }}"
+            class="item-card-link"
+          >
+            <div class="item-card">
+              <div class="listing">
+                <h6>{{ listing.title }}</h6>
+              </div>
+              <div>
+                {% if listing.encoded_image %}
+                <img
+                  src="data:image/png;base64,{{ listing.encoded_image }}"
+                  style="max-width: 100%; height: auto"
+                  class="img-fluid"
+                  alt="Image of listing"
+                />
+                {% else %}
+                <p>No image available</p>
+                {% endif %}
+                <p>&pound;{{ listing.price }}</p>
+              </div>
             </div>
-            <div>
-              {% if listing.encoded_image %}
-              <img
-                src="data:image/png;base64,{{ listing.encoded_image }}"
-                style="max-width: 100%; height: auto"
-                class="img-fluid"
-                alt="Image of listing"
-              />
-              {% else %}
-              <p>No image available</p>
-              {% endif %}
-              <p>&pound;{{ listing.price }}</p>
-            </div>
-          </div>
+          </a>
           <div class="row justify-content-between align-items-center">
             <div class="col-4 pt-2 pe-0">
               <a href="#" class="listing-btn btn btn-secondary p-0">Edit</a>
@@ -273,33 +278,6 @@
       <p>No listed items currently.</p>
       {% endif %}
     </div>
-
-    <!-- <div id="listings" class="accordion-collapse collapse">
-      <div class="accordion-body listings">
-        {% for listing in listings %}
-        <div class="listing">
-          <h2>{{ listing.title }}</h2>
-          <p>Species: {{ listing.species }}</p>
-          <p>Tree Type: {{ listing.tree_type }}</p>
-          <p>Indoor/Outdoor: {{ listing.indoor_outdoor }}</p>
-          <p>Description: {{ listing.description }}</p>
-          <p>Height: {{ listing.height }}</p>
-          <p>Price: {{ listing.price }}</p>
-          <p>Care Tips: {{ listing.care_tips }}</p>
-          {% if listing.encoded_image %}
-          <img
-            src="data:image/png;base64,{{ listing.encoded_image }}"
-            alt="Listing Image"
-          />
-          {% else %}
-          <p>No image available</p>
-          {% endif %}
-        </div>
-        {% endfor %} {% if not listings %}
-        <p>No listed items currently.</p>
-        {% endif %}
-      </div>
-    </div> -->
   </div>
   <!-- Saved Items -->
   <div class="accordion-item text-start">
