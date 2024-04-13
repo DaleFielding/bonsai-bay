@@ -233,7 +233,7 @@
     </h2>
 
     <div class="accordion-body listings row center-all text-center">
-      <!-- listing -->
+      <!-- Listing -->
       {% for listing in listings %}
       <div class="col-10 col-sm-6 col-md-4 col-lg-3">
         <div class="item-card-container">
@@ -241,7 +241,7 @@
             href="{{ url_for('item', listing_id=listing.id) }}"
             class="item-card-link"
           >
-            <div class="item-card">
+            <div class="item-card item-card item-card-small">
               <div class="listing">
                 <h6>{{ listing.title }}</h6>
               </div>

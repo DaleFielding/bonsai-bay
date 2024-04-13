@@ -34,83 +34,37 @@
   </div>
 </div>
 
-<!-- Item Cards -->
-<div class="row center-all">
-  <!-- Item Card -->
-  <div class="col-10 col-sm-6 col-md-4 col-lg-3 item-card-container">
-    <div class="item-card">
-      <div>
-        <h6>Title</h6>
-      </div>
-      <div>
-        <img
-          src="{{ url_for('static', filename='assets/main-image.png') }}"
-          style="max-width: 100%; height: auto"
-          class="img-fluid"
-        />
-      </div>
+<!-- Listings -->
+<div class="accordion-body listings row center-all text-center">
+  <!-- Listing -->
+  {% for listing in listings %}
+  <div class="col-10 col-sm-6 col-md-4 col-lg-3">
+    <div class="item-card-container">
+      <a href="{{ url_for('item') }}" class="item-card-link">
+        <div class="item-card item-card-small">
+          <div class="listing">
+            <h6>{{ listing.title }}</h6>
+          </div>
+          <div>
+            {% if listing.encoded_image %}
+            <img
+              src="data:image/png;base64,{{ listing.encoded_image }}"
+              style="max-width: 100%; height: auto"
+              class="img-fluid"
+              alt="Image of listing"
+            />
+            {% else %}
+            <p>No image available</p>
+            {% endif %}
+            <p>&pound;{{ listing.price }}</p>
+          </div>
+        </div>
+      </a>
     </div>
   </div>
-  <!-- Item Card -->
-  <div class="col-10 col-sm-6 col-md-4 col-lg-3 item-card-container">
-    <div class="item-card">
-      <div>
-        <h6>Title</h6>
-      </div>
-      <div>
-        <img
-          src="{{ url_for('static', filename='assets/main-image.png') }}"
-          style="max-width: 100%; height: auto"
-          class="img-fluid"
-        />
-      </div>
-    </div>
-  </div>
-  <!-- Item Card -->
-  <div class="col-10 col-sm-6 col-md-4 col-lg-3 item-card-container">
-    <div class="item-card">
-      <div>
-        <h6>Title</h6>
-      </div>
-      <div>
-        <img
-          src="{{ url_for('static', filename='assets/main-image.png') }}"
-          style="max-width: 100%; height: auto"
-          class="img-fluid"
-        />
-      </div>
-    </div>
-  </div>
-  <!-- Item Card -->
-  <div class="col-10 col-sm-6 col-md-4 col-lg-3 item-card-container">
-    <div class="item-card">
-      <div>
-        <h6>Title</h6>
-      </div>
-      <div>
-        <img
-          src="{{ url_for('static', filename='assets/main-image.png') }}"
-          style="max-width: 100%; height: auto"
-          class="img-fluid"
-        />
-      </div>
-    </div>
-  </div>
-  <!-- Item Card -->
-  <div class="col-10 col-sm-6 col-md-4 col-lg-3 item-card-container">
-    <div class="item-card">
-      <div>
-        <h6>Title</h6>
-      </div>
-      <div>
-        <img
-          src="{{ url_for('static', filename='assets/main-image.png') }}"
-          style="max-width: 100%; height: auto"
-          class="img-fluid"
-        />
-      </div>
-    </div>
-  </div>
+  {% endfor %} {% if not listings %}
+  <p>No listed items currently.</p>
+  {% endif %}
 </div>
 
 <div class="row center-all">
