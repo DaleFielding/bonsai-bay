@@ -96,12 +96,24 @@ footer {
 /* Item Cards */
 .item-card-container {
   padding: 1rem;
+  overflow: hidden;
 }
 
 .item-card {
   padding: 1rem;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   border: 2px solid rgba(0, 0, 0, 0.2);
+
+}
+
+.item-card-small {
+  max-height: 500px;
+  min-height: 300px;
+}
+
+.item-card img {
+  object-fit: cover;
+  min-height: 140px;
 }
 
 /* Item Description */
