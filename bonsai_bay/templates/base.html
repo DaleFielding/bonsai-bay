@@ -59,13 +59,81 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Search</a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('account') }}">Account</a>
+              <button
+                class="nav-link btn btn-link"
+                data-bs-toggle="modal"
+                data-bs-target="#loginRegisterModal"
+              >
+                Account
+              </button>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+
+    <!-- Account Login/Register Model -->
+    <div
+      class="modal fade"
+      id="loginRegisterModal"
+      tabindex="-1"
+      aria-labelledby="loginRegisterModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginRegisterModalLabel">
+              Login/Register
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <!-- Login/Register Form -->
+            <form>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter email address"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  placeholder="Enter password"
+                />
+              </div>
+              <div class="row pt-2">
+                <div class="col-6 center-all">
+                  <button type="submit" class="btn btn-secondary listing-btn">
+                    Login
+                  </button>
+                </div>
+                <div class="col-6 gap-4 center-all">
+                  <button type="submit" class="btn btn-secondary listing-btn">
+                    Register
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <main class="container-fluid text-center">
       {% block content %} {% endblock %}
