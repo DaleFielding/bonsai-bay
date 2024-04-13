@@ -7,7 +7,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(25), unique=True, nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
-    password_hash = db.Column(db.String(128))
+    password_hash = db.Column(db.String(256))
     location = db.Column(db.String(100), nullable=False)
     saved_item_id = db.Column(db.Integer, db.ForeignKey("saved_item.id", ondelete="CASCADE"), nullable=True)
 
@@ -15,7 +15,6 @@ class User(db.Model):
     def password(self):
         raise AttributeError('password is not a readable attribute.')
 
-    
     @password.setter
     def password(self, password):
         # Generate password hash from the padssword
