@@ -6,14 +6,20 @@
     <div class="item-card-container">
       <div class="item-card">
         <div class="listing">
-          <h6>Title</h6>
+          <h6>{{ listing.title }}</h6>
         </div>
         <div>
+          {% if listing.encoded_image %}
           <img
-            src="{{ url_for('static', filename='assets/main-image.png') }}"
+            src="data:image/png;base64,{{ listing.encoded_image }}"
             style="max-width: 100%; height: auto"
+            class="img-fluid"
+            alt="Image of listing"
           />
-          <p>&pound;50.00</p>
+          {% else %}
+          <p>No image available</p>
+          {% endif %}
+          <p>&pound;{{ listing.price }}</p>
         </div>
       </div>
     </div>
@@ -22,25 +28,15 @@
     <div class="item-description-container">
       <div class="item-description">
         <li><strong>Description</strong>:</li>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, fuga
-          error esse iure, veritatis accusantium saepe tempora, dolorem hic
-          suscipit adipisci unde distinctio dolorum eaque veniam? Aliquid magni
-          aliquam dolor?
-        </p>
+        <p>{{ listing.description }}</p>
         <li><strong>Care Tips</strong>:</li>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae eum
-          modi voluptate earum cum ipsa necessitatibus harum incidunt optio
-          quidem soluta eos, nihil laudantium totam eveniet fugit dignissimos.
-          Aspernatur, aut!
-        </p>
+        <p>{{ listing.care_tips }}</p>
         <li><strong>Features</strong>:</li>
         <p>
-          Species = Chinese Elm <br />
-          Type = Evergreen <br />
-          Indoor/Outdoor = Either <br />
-          Height = 50cm
+          Species = {{ listing.species }} <br />
+          Type = {{ listing.tree_type }}<br />
+          Indoor/Outdoor = {{ listing.indoor_outdoor }} <br />
+          Height = {{ listing.height }}
         </p>
       </div>
     </div>
