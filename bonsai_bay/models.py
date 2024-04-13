@@ -1,4 +1,5 @@
 from bonsai_bay import db
+from werkzeug.security import generate_password_hash, check_password_hash
 
 # table schemas:
 
@@ -6,12 +7,25 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(25), unique=True, nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
-    password_hashed = db.Column(db.String(25), nullable=False)
+    password_hash = db.Column(db.String(128))
     location = db.Column(db.String(100), nullable=False)
-    saved_item_id = db.Column(db.Integer, db.ForeignKey("saved_item.id", ondelete="CASCADE"), nullable=False)
+    saved_item_id = db.Column(db.Integer, db.ForeignKey("saved_item.id", ondelete="CASCADE"), nullable=True)
+
+    @property
+    def password(self):
+        raise AttributeError('password is not a readable attribute.')
+
+    
+    @password.setter
+    def password(self, password):
+        # Generate password hash from the padssword
+        self.password_hash = generate_password_hash(password)
+
+    def verify_password(self, password):
+        return check_password_hash(self.password_hash, password)
 
     def __repr__(self):
-        return self.username
+        return '<Name %r>' % self.username
 
 class Listing(db.Model):
     id = db.Column(db.Integer, primary_key=True)
