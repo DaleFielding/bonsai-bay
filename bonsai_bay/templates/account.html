@@ -295,7 +295,48 @@
       </button>
     </h2>
     <div id="saved-items" class="accordion-collapse collapse">
-      <div class="accordion-body">No saved items currently.</div>
+      <div class="accordion-body listings row center-all text-center">
+        {% for listing in listings %}
+        <div class="col-10 col-sm-6 col-md-4 col-lg-3">
+          <div class="item-card-container">
+            <a
+              href="{{ url_for('listed_item', listing_id=listing.id) }}"
+              class="item-card-link"
+            >
+              <div class="item-card item-card-small">
+                <div class="listing">
+                  <h6>{{ listing.title }}</h6>
+                </div>
+                <div>
+                  {% if listing.encoded_image %}
+                  <img
+                    src="data:image/png;base64,{{ listing.encoded_image }}"
+                    style="max-width: 100%; height: auto"
+                    class="img-fluid"
+                    alt="Image of listing"
+                  />
+                  {% else %}
+                  <p>No image available</p>
+                  {% endif %}
+                  <p>&pound;{{ listing.price }}</p>
+                </div>
+              </div>
+            </a>
+            <div class="row center-all">
+              <div class="col-4 pt-2 pe-0">
+                <a
+                  href="{{ url_for('remove_listing', listing_id=listing.id) }}"
+                  class="listing-btn btn btn-secondary p-0"
+                  >Remove
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %} {% if not listings %}
+        <p>No saved items currently.</p>
+        {% endif %}
+      </div>
     </div>
   </div>
 </section>
