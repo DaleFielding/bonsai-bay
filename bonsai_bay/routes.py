@@ -7,7 +7,18 @@ import base64
 # Homepage
 @app.route("/")
 def home():
-    return render_template("index.html")
+    # Query the database to retrieve all listings
+    listings = Listing.query.all()
+    
+    # Iterate over each listing and encode the image
+    for listing in listings:
+        if listing.image:
+            listing.encoded_image = base64.b64encode(listing.image).decode('utf-8')
+        else:
+            listing.encoded_image = None
+    
+    # Render homepage page and pass listings to the template so that they can be displayed
+    return render_template("index.html", listings=listings)
 
 
 # Homepage, scrolled to browse_bonsai id
@@ -20,6 +31,7 @@ def browse_bonsai():
 @app.route("/item")
 def item():
     return render_template("item.html")
+
 
 # # Item Page with listing id passed in
 # @app.route("/item/<int:listing_id>")
