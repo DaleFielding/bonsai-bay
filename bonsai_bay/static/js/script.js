@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .then(response => response.json())
       .then(data => {
 
-        const registrationMessage = document.querySelector("data-registration-message");
+        const registrationMessage = document.querySelector("[data-registration-message]");
 
         if (data.success) {
           registrationMessage.innerHTML = `<div class="alert alert-success">${data.message}</div>`;
