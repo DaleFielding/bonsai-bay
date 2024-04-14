@@ -180,6 +180,42 @@
 
       {% endfor %}
     </div>
+    <!-- Login form -->
+    <form
+      id="loginForm"
+      class="model-form"
+      method="POST"
+      action="{{ url_for('login') }}"
+    >
+      <div class="mb-3">
+        <div class="mb-3">
+          <label for="username_or_email" class="form-label"
+            >Username or Email Address</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="username_or_email"
+            name="username_or_email"
+            placeholder="Enter your username or email address"
+            required
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control id="password" name="password"
+        placeholder="Enter your password" required />
+      </div>
+      <div class="row pt-2">
+        <div class="col-12 center-all">
+          <button type="submit" class="btn btn-secondary listing-btn">
+            Login
+          </button>
+        </div>
+      </div>
+      <div class="login-message" data-login-message>{{ message }}</div>
+    </form>
     <!-- </div>
         </div>
       </div>
