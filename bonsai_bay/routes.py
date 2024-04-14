@@ -1,7 +1,13 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash, jsonify
 from bonsai_bay import app, db
 from bonsai_bay.models import Listing, User, Seller, SavedItem
 import base64
+
+# Temporary, I will include within the appropriate route once I set up registration and login.
+@app.context_processor
+def inject_user_data():
+    users = User.query.all()
+    return dict(users=users)
 
 
 # Homepage
@@ -65,13 +71,10 @@ def account():
     # Render account page and pass listings to the template so that they can be displayed
     return render_template("account.html", listings=listings)
 
-
 # Create Listing
 @app.route("/create_listing", methods=["GET", "POST"])
 def create_listing():
     if request.method == "POST":
-        # Adding to help with determining issue with database
-        app.logger.info("Form data received: %s", request.form)
         
         # To handle the uploaded files
         image_file = request.files['image']
@@ -113,6 +116,25 @@ def delete_listing(listing_id):
     # Redirect to account template
     return redirect(url_for("account"))
 
+
+@app.route("/register", methods=["POST"])
+def register():
+    username = request.form.get("username")
+    email = request.form.get("email")
+    password = request.form.get("password")
+    location = request.form.get("location")
+
+    # Check if the user already exists
+    if User.query.filter_by(username=username).first() or User.query.filter_by(email=email).first():
+        return jsonify({"success": False, "message": "User already exists, please login if this is you."})
+
+    # Create a new user object and save it to the database
+    new_user = User(username=username, email=email, location=location)
+    new_user.password = password 
+    db.session.add(new_user)
+    db.session.commit()
+
+    return jsonify({"success": True, "message": "Registration was successful."})
 
 # Only for testing. Not needed in final version
 # @app.route("/404")
