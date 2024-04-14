@@ -75,7 +75,7 @@
     </nav>
 
     <!-- Account Login/Register Model -->
-    <div
+    <!-- <div
       class="modal fade"
       id="loginRegisterModal"
       tabindex="-1"
@@ -95,45 +95,95 @@
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body">
-            <!-- Login/Register Form -->
-            <form>
-              <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  aria-describedby="emailHelp"
-                  placeholder="Enter email address"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="password"
-                  placeholder="Enter password"
-                />
-              </div>
-              <div class="row pt-2">
-                <div class="col-6 center-all">
-                  <button type="submit" class="btn btn-secondary listing-btn">
-                    Login
-                  </button>
-                </div>
-                <div class="col-6 gap-4 center-all">
-                  <button type="submit" class="btn btn-secondary listing-btn">
-                    Register
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
+          <div class="modal-body"> -->
+    <!-- Login/Register Form -->
+    <form
+      id="registerForm"
+      class="model-form"
+      method="POST"
+      action="{{ url_for('register') }}"
+    >
+      <div class="mb-3">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            name="username"
+            placeholder="Pick a username"
+            required
+          />
+        </div>
+        <label for="email" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          aria-describedby="emailHelp"
+          placeholder="Enter email address"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          name="password"
+          placeholder="Enter password"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="password2" class="form-label">Retype Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password2"
+          name="password2"
+          placeholder="Retype password"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input
+          type="text"
+          class="form-control"
+          id="location"
+          name="location"
+          placeholder="Enter location"
+          required
+        />
+      </div>
+      <div class="row pt-2">
+        <div class="col-12 center-all">
+          <button type="submit" class="btn btn-secondary listing-btn">
+            Register
+          </button>
         </div>
       </div>
+      <div class="registration-message" data-registration-messege>
+        {{ message }}
+      </div>
+    </form>
+    <!-- User data display -->
+    <div>
+      {% for user in users %}
+      <p>Username: {{ user.username }}</p>
+      <p>Email: {{ user.email }}</p>
+      <p>Password: {{ user.password_hash }}</p>
+      <p>Location: {{ user.location }}</p>
+
+      {% endfor %}
     </div>
+    <!-- </div>
+        </div>
+      </div>
+    </div> -->
 
     <main class="container-fluid text-center">
       {% block content %} {% endblock %}
