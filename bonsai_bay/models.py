@@ -1,9 +1,10 @@
 from bonsai_bay import db
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
 
 # table schemas:
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(25), unique=True, nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
@@ -38,13 +39,7 @@ class Listing(db.Model):
     care_tips = db.Column(db.String(200), nullable=False)
     image = db.Column(db.LargeBinary, nullable=False)
     date_added = db.Column(db.Date, nullable=False)
-    seller_id = db.Column(db.Integer, db.ForeignKey("seller.id", ondelete="CASCADE"), nullable=False)
-    seller = db.relationship("Seller", backref="listings") 
-
-class Seller(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id", ondelete="CASCADE"), nullable=False)
-    user = db.relationship("User", backref="seller") 
 
 class SavedItem(db.Model): 
     id = db.Column(db.Integer, primary_key=True)
