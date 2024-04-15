@@ -98,6 +98,19 @@ footer {
   padding: 0.5rem;
 }
 
+.search-icon {
+  color: white;
+}
+
+/* Search Bar */
+.search-form input {
+  border-radius: 0.375rem 0 0 0.375rem;
+}
+
+.search-form div {
+  border-radius: 0 0.375rem 0.375rem 0;
+}
+
 /* Item Cards */
 .item-card-container {
   padding: 1rem;
