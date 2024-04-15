@@ -103,11 +103,14 @@ footer {
 }
 
 /* Search Bar */
-.search-form input {
+.search-bar input {
   border-radius: 0.375rem 0 0 0.375rem;
+  border-color: var(--my-green);
+  border-right: 0;
+  width: 100%;
 }
 
-.search-form div {
+.search-bar button {
   border-radius: 0 0.375rem 0.375rem 0;
 }
 
