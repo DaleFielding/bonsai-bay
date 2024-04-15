@@ -57,7 +57,7 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Search</a>
+              <a class="nav-link" href="#" data-toggle-search>Search</a>
             </li>
 
             <li class="nav-item">
@@ -73,6 +73,25 @@
         </div>
       </div>
     </nav>
+
+    <!-- Search Bar -->
+    <div class="container-fluid" data-search-bar>
+      <div class="row justify-content-center m-1">
+        <div class="col-lg-4">
+          <form class="d-flex search-form">
+            <input
+              class="form-control"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <div class="btn btn-secondary" type="submit">
+              <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
 
     <!-- Account Login/Register Model -->
     <!-- <div
@@ -282,6 +301,7 @@
       src="https://kit.fontawesome.com/4c839ba6ba.js"
       crossorigin="anonymous"
     ></script>
+    <script src="{{ url_for('static', filename='js/search.js') }}"></script>
     <script src="{{ url_for('static', filename='js/registration.js') }}"></script>
     <script src="{{ url_for('static', filename='js/location.js') }}"></script>
   </body>
