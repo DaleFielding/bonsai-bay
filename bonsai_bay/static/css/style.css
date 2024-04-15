@@ -93,6 +93,11 @@ footer {
   height: 2.2rem;
 }
 
+.location-icon {
+  font-size: 2rem;
+  padding: 0.5rem;
+}
+
 /* Item Cards */
 .item-card-container {
   padding: 1rem;
