@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
 * Clears the listings currently displayed in homepage.
 * Iterates through the response data
 * Appends newly created item cards with the listings in the response data.
+* After this, scrolls down to where the listings are displayed.
 * Log errors to console if issues.
 **/
 
@@ -51,6 +52,8 @@ function searchListings() {
         `;
         listingsContainer.appendChild(listingDiv);
       });
+      const scrollToListings = document.getElementById("browse-bonsai");
+      scrollToListings.scrollIntoView({ behavior: 'smooth' });
     })
     .catch(error => console.error('Error:', error));
 }
