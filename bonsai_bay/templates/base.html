@@ -149,15 +149,18 @@
         />
       </div>
       <div class="mb-3">
-        <label for="location" class="form-label">Location</label>
+        <label for="location" class="form-label">Location (City)</label>
         <input
           type="text"
           class="form-control"
           id="location"
           name="location"
-          placeholder="Enter location"
+          placeholder="Click icon below to find your city, or manually type your city in this field"
           required
         />
+        <div type="button" class="hidden-btn" data-get-location>
+          <i class="fa fa-map-marker location-icon" aria-hidden="true"></i>
+        </div>
       </div>
       <div class="row pt-2">
         <div class="col-12 center-all">
@@ -279,6 +282,7 @@
       src="https://kit.fontawesome.com/4c839ba6ba.js"
       crossorigin="anonymous"
     ></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/registration.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/location.js') }}"></script>
   </body>
 </html>
