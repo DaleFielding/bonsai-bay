@@ -73,23 +73,22 @@
         </div>
       </div>
     </nav>
-
     <!-- Search Bar -->
     <div class="container-fluid" data-search-bar>
       <div class="row justify-content-center m-1">
-        <div class="col-lg-4">
-          <form class="d-flex search-form" id="searchForm">
-            <input
-              class="form-control"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-              data-form-control
-            />
-            <div class="btn btn-secondary search-btn" type="submit">
-              <i class="fa-solid fa-magnifying-glass search-icon"></i>
-            </div>
-          </form>
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 search-bar d-flex p-0">
+          <input
+            type="text"
+            id="search-query"
+            placeholder=" Search listings here"
+          />
+          <button
+            onclick="searchListings()"
+            class="btn btn-secondary search-btn"
+            type="submit"
+          >
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          </button>
         </div>
       </div>
     </div>
