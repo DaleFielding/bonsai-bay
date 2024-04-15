@@ -98,20 +98,35 @@ footer {
   padding: 0.5rem;
 }
 
-.search-icon {
-  color: white;
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
 }
 
 /* Search Bar */
+.search-bar {
+  position: sticky;
+  top: 96px;
+}
+
 .search-bar input {
-  border-radius: 0.375rem 0 0 0.375rem;
+  border-radius: 0 0 0 0.375rem;
   border-color: var(--my-green);
   border-right: 0;
+  border-top: 0;
   width: 100%;
 }
 
 .search-bar button {
-  border-radius: 0 0.375rem 0.375rem 0;
+  border-radius: 0 0 0.375rem 0;
+  border-top: 0;
+  border-color: var(--my-green);
+}
+
+.search-icon {
+  color: white;
 }
 
 /* Item Cards */
