@@ -13,6 +13,13 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+// Event listener to call the searchListings (below) function when pressing enter on the keyboard
+document.getElementById("search-query").addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    searchListings();
+  }
+});
 
 /**  searchListings() function: 
 * Accesses the search query id from base.html
@@ -24,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function () {
 * After this, scrolls down to where the listings are displayed.
 * Log errors to console if issues.
 **/
-
 function searchListings() {
   let query = document.getElementById("search-query").value.trim();
   fetch(`/search?query=${query}`)
