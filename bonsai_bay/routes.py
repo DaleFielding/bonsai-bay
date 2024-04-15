@@ -175,7 +175,34 @@ def delete_listing(listing_id):
     # Redirect to account template
     return redirect(url_for("account"))
 
-    
+
+# Search 
+@app.route('/search', methods=['GET'])
+def search():
+    query = request.args.get('query')  
+    results = Listing.query.filter(
+        (Listing.title.ilike(f'%{query}%')) |
+        (Listing.species.ilike(f'%{query}%')) |
+        (Listing.tree_type.ilike(f'%{query}%')) |
+        (Listing.indoor_outdoor.ilike(f'%{query}%')) |
+        (Listing.description.ilike(f'%{query}%')) |
+        (Listing.care_tips.ilike(f'%{query}%'))
+    ).all()
+    result_list = []
+    for listing in results:
+        result = {
+            'id': listing.id,
+            'title': listing.title,
+            'species': listing.species,
+            'indoor_outdoor': listing.indoor_outdoor,
+        }
+        if listing.image:
+            result['image'] = base64.b64encode(listing.image).decode('utf-8')
+        else:
+            result['image'] = None
+        result_list.append(result)
+    return jsonify(result_list)
+
 # Only for testing. Not needed in final version
 # @app.route("/404")
 # def errorpage():
