@@ -193,8 +193,7 @@ def search():
         result = {
             'id': listing.id,
             'title': listing.title,
-            'species': listing.species,
-            'indoor_outdoor': listing.indoor_outdoor,
+            'price': listing.price
         }
         if listing.image:
             result['image'] = base64.b64encode(listing.image).decode('utf-8')
