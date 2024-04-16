@@ -98,6 +98,11 @@ footer {
   padding: 0.5rem;
 }
 
+.delete-btn {
+  width: 100%;
+  padding: 0.5rem;
+}
+
 /* Navbar */
 .navbar {
   position: sticky;
