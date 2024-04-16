@@ -46,12 +46,6 @@ def browse_bonsai():
     return render_template("index.html", listings=listings, scroll_to="browse-bonsai")
 
 
-# Item Page for styling
-@app.route("/item")
-def item():
-    return render_template("item.html")
-
-
 # Item Page with listing id passed in
 @app.route("/item/<int:listing_id>")
 def listed_item(listing_id):
@@ -104,13 +98,10 @@ def login():
         login_user(user)
 
         flash("Login successful", "success")
-        # Redirect to the account page upon successful login
+        # Redirect to the account page if login succesful
         return redirect(url_for("account"))
     else:
-        # If the user doesn't exist or the password is incorrect, show an error message
         flash("Invalid username/email or password. Please try again.", "error")
-        # You may want to redirect back to the login page or render the base template again
-        # For now, let's redirect to the home page
         return redirect(url_for("home"))
 
 
@@ -120,13 +111,13 @@ def login():
 def account():
     user = current_user
     if user:
-        # Query the database to retrieve all listings for the current user
+        # Query all listings for the current user
         user_listings = Listing.query.filter_by(user_id=user.id).all()
 
-        # Query the database to retrieve all saved items for the current user
+        # query all saved items for the current user
         saved_items = SavedItem.query.filter_by(user_id=user.id).all()
 
-        # Initialize empty lists to hold the listings and saved items
+        # create empty lists for listings and save_listings
         listings = []
         saved_listings = []
 
@@ -136,10 +127,9 @@ def account():
                 listing.encoded_image = base64.b64encode(listing.image).decode('utf-8')
             else:
                 listing.encoded_image = None
-            # Append the listing to the listings list
+            # Append to the listings list
             listings.append(listing)
 
-        # Iterate over each saved item and retrieve the corresponding listing
         for saved_item in saved_items:
             listing = Listing.query.get(saved_item.listing_id)
             if listing:
