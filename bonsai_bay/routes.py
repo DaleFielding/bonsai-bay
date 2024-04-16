@@ -165,15 +165,18 @@ def create_listing():
 
 
 # Delete Listing
-@app.route("/delete_listing/<int:listing_id>")
+@app.route("/delete_listing/<int:listing_id>", methods=["POST"])
 def delete_listing(listing_id):
-    # Query the database to obtain the listing_id or display 404
-    listing = Listing.query.get_or_404(listing_id)
-    # Delete the relevant listing
-    db.session.delete(listing)
-    db.session.commit()
-    # Redirect to account template
-    return redirect(url_for("account"))
+    # Added check for POST to ensure delete only takes place after confirmation/when the form is submitted
+    if request.method == "POST":
+        # Query the database to obtain the listing_id or display 404
+        listing = Listing.query.get_or_404(listing_id)
+        # Delete the relevant listing
+        db.session.delete(listing)
+        db.session.commit()
+        # Redirect to account template
+        return redirect(url_for("account"))
+
 
 
 # Search 
