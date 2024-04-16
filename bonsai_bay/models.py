@@ -1,5 +1,6 @@
 from bonsai_bay import db
 from werkzeug.security import generate_password_hash, check_password_hash
+from sqlalchemy.orm import relationship
 from flask_login import UserMixin
 
 # table schemas:
@@ -10,7 +11,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(100), unique=True, nullable=False)
     password_hash = db.Column(db.String(256))
     location = db.Column(db.String(100), nullable=False)
-    saved_item_id = db.Column(db.Integer, db.ForeignKey("saved_item.id", ondelete="CASCADE"), nullable=True)
+    saved_items = relationship('SavedItem', backref='user', lazy=True)
 
     @property
     def password(self):
