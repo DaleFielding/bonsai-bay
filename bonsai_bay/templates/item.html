@@ -51,10 +51,13 @@
   <div class="col-10 col-sm-8 col-md-6 col-lg-4 item-btn-container center-all">
     <button href="#" class="item-btn btn btn-secondary">Save Item</button>
   </div>
-  <div class="col-10 col-sm-8 col-md-6 col-lg-4 item-btn-container center-all">
-    <button href="#" class="item-btn btn btn-secondary">
+  <div class="col-10 col-sm-8 col-md-6 col-lg-4 item-btn-container">
+    <a
+      href="{{ url_for('home') }}"
+      class="item-btn btn btn-secondary d-flex center-all"
+    >
       Back to Homepage
-    </button>
+    </a>
   </div>
 </div>
 
