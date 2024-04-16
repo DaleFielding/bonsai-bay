@@ -126,6 +126,7 @@ def account():
         return redirect(url_for("home"))
 
 
+# Create Listing
 @app.route("/create_listing", methods=["GET", "POST"])
 @login_required
 def create_listing():
@@ -142,6 +143,7 @@ def create_listing():
             encoded_image = None
 
         # Create new listing object using my form data
+        # including assign user_id from current user
         listing = Listing(
             title=request.form.get("title"),
             species=request.form.get("species"),
@@ -152,7 +154,7 @@ def create_listing():
             price=request.form.get("price"),
             care_tips=request.form.get("care_tips"),
             image=image_data,
-            user_id=user.id  # Assign the user_id of the current user
+            user_id=user.id  
         )
 
         listing.date_added = datetime.now()
@@ -162,6 +164,34 @@ def create_listing():
 
         return redirect(url_for("account"))
     return render_template("account.html")
+
+
+# Edit Listing
+@app.route("/edit_listing/<int:listing_id>", methods=["GET", "POST"])
+@login_required
+def edit_listing(listing_id):
+    listing = Listing.query.get_or_404(listing_id)
+    if request.method == "POST":
+        # Update listing with the changes
+        listing.title = request.form.get("edit_title")
+        listing.species = request.form.get("edit_species")
+        listing.tree_type = request.form.get("edit_tree_type")
+        listing.indoor_outdoor = request.form.get("edit_indoor_outdoor")
+        listing.description = request.form.get("edit_description")
+        listing.height = request.form.get("edit_height")
+        listing.price = request.form.get("edit_price")
+        listing.care_tips = request.form.get("edit_care_tips")
+        image_file = request.files.get('edit_image')
+        if image_file:
+            image_data = image_file.read()
+            listing.image = image_data
+
+        db.session.commit()
+
+        return redirect(url_for("account"))
+    else:
+        # Pass the listing object to the account route
+        return redirect(url_for("account", listing=listing))
 
 
 # Delete Listing
@@ -176,7 +206,6 @@ def delete_listing(listing_id):
         db.session.commit()
         # Redirect to account template
         return redirect(url_for("account"))
-
 
 
 # Search 
@@ -204,6 +233,7 @@ def search():
             result['image'] = None
         result_list.append(result)
     return jsonify(result_list)
+
 
 # Only for testing. Not needed in final version
 # @app.route("/404")
