@@ -49,7 +49,14 @@
     <button href="#" class="item-btn btn btn-secondary">Message Seller</button>
   </div>
   <div class="col-10 col-sm-8 col-md-6 col-lg-4 item-btn-container center-all">
-    <button href="#" class="item-btn btn btn-secondary">Save Item</button>
+    <form
+      action="{{ url_for('save_item', listing_id=listing.id) }}"
+      method="POST"
+    >
+      <button type="submit" class="item-btn btn btn-secondary">
+        Save Item
+      </button>
+    </form>
   </div>
   <div class="col-10 col-sm-8 col-md-6 col-lg-4 item-btn-container">
     <a
