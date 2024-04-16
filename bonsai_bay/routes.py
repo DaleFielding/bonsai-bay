@@ -94,15 +94,15 @@ def login():
         (User.username == username_or_email) | (User.email == username_or_email)
     ).first()
 
+    # Check if user exists and the password is correct, 
+    # Log user in if so
     if user and user.verify_password(password):
         login_user(user)
-
-        flash("Login successful", "success")
-        # Redirect to the account page if login succesful
-        return redirect(url_for("account"))
+        # Return JSON success response with a message
+        return jsonify({"success": True, "message": "Login successful"})
     else:
-        flash("Invalid username/email or password. Please try again.", "error")
-        return redirect(url_for("home"))
+        # Return JSOn unsuccesful response with message
+        return jsonify({"success": False, "message": "Invalid username/email/password. Please try again."})
 
 
 # Account Page
