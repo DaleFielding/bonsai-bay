@@ -30,7 +30,7 @@ def home():
 
 
 # Homepage, scrolled to browse_bonsai id
-@app.route("/")
+@app.route("/scroll_to")
 def browse_bonsai():
     return render_template("index.html", scroll_to="browse-bonsai")
 
