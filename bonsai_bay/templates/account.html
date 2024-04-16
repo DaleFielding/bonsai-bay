@@ -237,43 +237,252 @@
         {% for listing in listings %}
         <div class="col-10 col-sm-6 col-md-4 col-lg-3">
           <div class="item-card-container">
-            <a
-              href="{{ url_for('item', listing_id=listing.id) }}"
-              class="item-card-link"
-            >
-              <div class="item-card item-card item-card-small">
-                <div class="listing">
-                  <h6>{{ listing.title }}</h6>
-                </div>
-                <div>
-                  {% if listing.encoded_image %}
-                  <img
-                    src="data:image/png;base64,{{ listing.encoded_image }}"
-                    style="max-width: 100%; height: auto"
-                    class="img-fluid"
-                    alt="Image of listing"
-                  />
-                  {% else %}
-                  <p>No image available</p>
-                  {% endif %}
-                  <p>&pound;{{ listing.price }}</p>
-                </div>
+            <div class="item-card item-card item-card-small">
+              <div class="listing">
+                <h6>{{ listing.title }}</h6>
               </div>
-            </a>
+              <div>
+                {% if listing.encoded_image %}
+                <img
+                  src="data:image/png;base64,{{ listing.encoded_image }}"
+                  style="max-width: 100%; height: auto"
+                  class="img-fluid"
+                  alt="Image of listing"
+                />
+                {% else %}
+                <p>No image available</p>
+                {% endif %}
+                <p>&pound;{{ listing.price }}</p>
+              </div>
+            </div>
+
             <div class="row justify-content-between align-items-center">
               <div class="col-4 pt-2 pe-0">
-                <a href="#" class="listing-btn btn btn-secondary p-0">Edit</a>
-              </div>
-              <div class="col-4 pt-2 ps-0">
-                <a
-                  href="#"
+                <!-- Edit Button -->
+                <button
+                  type="button"
                   class="listing-btn btn btn-secondary p-0"
                   data-bs-toggle="modal"
-                  data-bs-target="#deleteListingModal"
-                  >Delete
-                </a>
+                  data-bs-target="#editModal{{ listing.id }}"
+                >
+                  Edit
+                </button>
               </div>
-              <!-- Model for Delete -->
+              <!-- Delete Button -->
+              <div class="col-4 pt-2 ps-0 text-center">
+                <button
+                  class="listing-btn btn btn-secondary p-0 text-center"
+                  data-bs-toggle="modal"
+                  data-bs-target="#deleteListingModal"
+                >
+                  Delete
+                </button>
+              </div>
+
+              <!-- Edit Listing Modal -->
+              <div
+                class="modal fade"
+                id="editModal{{ listing.id }}"
+                tabindex="-1"
+                aria-labelledby="editModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="editModalLabel">
+                        Edit Listing
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <!-- Edit Listing Form -->
+                      <form
+                        method="POST"
+                        action="{{ url_for('edit_listing', listing_id=listing.id) }}"
+                        enctype="multipart/form-data"
+                        class="text-start"
+                      >
+                        <div class="mb-3">
+                          <label for="edit_title" class="form-label"
+                            >Title</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="edit_title"
+                            name="edit_title"
+                            value="{{ listing.title }}"
+                          />
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="edit_species" class="form-label"
+                            >Species</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="edit_species"
+                            name="edit_species"
+                            value="{{ listing.species }}"
+                          />
+                        </div>
+
+                        <div class="mb-3">
+                          <label class="form-label">Type</label>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio"
+                            name="edit_tree_type" id="edit_evergreen{{
+                            listing.id }}" value="evergreen" {% if
+                            listing.tree_type == "evergreen" %} checked {% endif
+                            %}>
+                            <label
+                              class="form-check-label"
+                              for="edit_evergreen{{ listing.id }}"
+                              >Evergreen</label
+                            >
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio"
+                            name="edit_tree_type" id="edit_deciduous{{
+                            listing.id }}" value="deciduous" {% if
+                            listing.tree_type == "deciduous" %} checked {% endif
+                            %}>
+                            <label
+                              class="form-check-label"
+                              for="edit_deciduous{{ listing.id }}"
+                              >Deciduous</label
+                            >
+                          </div>
+                        </div>
+
+                        <div class="mb-3">
+                          <label class="form-label">Indoor/Outdoor</label>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio"
+                            name="edit_indoor_outdoor" id="edit_indoor{{
+                            listing.id }}" value="indoor" {% if
+                            listing.indoor_outdoor == "indoor" %} checked {%
+                            endif %}>
+                            <label
+                              class="form-check-label"
+                              for="edit_indoor{{ listing.id }}"
+                              >Indoor</label
+                            >
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio"
+                            name="edit_indoor_outdoor" id="edit_outdoor{{
+                            listing.id }}" value="outdoor" {% if
+                            listing.indoor_outdoor == "outdoor" %} checked {%
+                            endif %}>
+                            <label
+                              class="form-check-label"
+                              for="edit_outdoor{{ listing.id }}"
+                              >Outdoor</label
+                            >
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio"
+                            name="edit_indoor_outdoor" id="edit_either{{
+                            listing.id }}" value="either" {% if
+                            listing.indoor_outdoor == "either" %} checked {%
+                            endif %}>
+                            <label
+                              class="form-check-label"
+                              for="edit_either{{ listing.id }}"
+                              >Either</label
+                            >
+                          </div>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="edit_height" class="form-label"
+                            >Height (cm)</label
+                          >
+                          <input
+                            type="number"
+                            class="form-control"
+                            id="edit_height"
+                            name="edit_height"
+                            value="{{ listing.height }}"
+                          />
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="edit_price" class="form-label"
+                            >Price (£)</label
+                          >
+                          <input
+                            type="number"
+                            class="form-control"
+                            id="edit_price"
+                            name="edit_price"
+                            value="{{ listing.price }}"
+                            step="0.01"
+                          />
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="edit_care_tips" class="form-label"
+                            >Care Tips</label
+                          >
+                          <textarea
+                            class="form-control"
+                            id="edit_care_tips"
+                            name="edit_care_tips"
+                            rows="3"
+                          >
+{{ listing.care_tips }}</textarea
+                          >
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="edit_description" class="form-label"
+                            >Description</label
+                          >
+                          <textarea
+                            class="form-control"
+                            id="edit_description"
+                            name="edit_description"
+                            rows="3"
+                          >
+{{ listing.description }}</textarea
+                          >
+                        </div>
+                        <div class="mb-3">
+                          <label for="image" class="form-label">Image</label>
+                          <input
+                            type="file"
+                            class="form-control"
+                            id="image"
+                            name="image"
+                            accept="image/*"
+                          />
+                        </div>
+                        <div class="center-all row pt-1">
+                          <div class="col-12 col-lg-8">
+                            <button
+                              type="submit"
+                              class="btn btn-secondary larger-btn"
+                            >
+                              Save Changes
+                            </button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Delete Listing Modal -->
               <div
                 class="modal fade"
                 id="deleteListingModal"
