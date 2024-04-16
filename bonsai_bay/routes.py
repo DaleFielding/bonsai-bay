@@ -32,7 +32,18 @@ def home():
 # Homepage, scrolled to browse_bonsai id
 @app.route("/scroll_to")
 def browse_bonsai():
-    return render_template("index.html", scroll_to="browse-bonsai")
+     # Query the database to retrieve all listings
+    listings = Listing.query.all()
+    
+    # Iterate over each listing and encode the image
+    for listing in listings:
+        if listing.image:
+            listing.encoded_image = base64.b64encode(listing.image).decode('utf-8')
+        else:
+            listing.encoded_image = None
+    
+    # Render homepage page and pass listings to the template so that they can be displayed
+    return render_template("index.html", listings=listings, scroll_to="browse-bonsai")
 
 
 # Item Page for styling
