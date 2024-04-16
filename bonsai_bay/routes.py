@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for, flash, jsonify
 from bonsai_bay import app, db
-from bonsai_bay.models import Listing, User
+from bonsai_bay.models import Listing, User, SavedItem
 from flask_login import login_user, login_required, current_user, logout_user
 from datetime import datetime
 import base64
@@ -110,17 +110,36 @@ def account():
     user = current_user
     if user:
         # Query the database to retrieve all listings for the current user
-        listings = Listing.query.filter_by(user_id=user.id).all()
+        user_listings = Listing.query.filter_by(user_id=user.id).all()
+
+        # Query the database to retrieve all saved items for the current user
+        saved_items = SavedItem.query.filter_by(user_id=user.id).all()
+
+        # Initialize empty lists to hold the listings and saved items
+        listings = []
+        saved_listings = []
 
         # Iterate over each listing and encode the image
-        for listing in listings:
+        for listing in user_listings:
             if listing.image:
                 listing.encoded_image = base64.b64encode(listing.image).decode('utf-8')
             else:
                 listing.encoded_image = None
+            # Append the listing to the listings list
+            listings.append(listing)
 
-        # Render account page and pass listings to the template so that they can be displayed
-        return render_template("account.html", listings=listings, user=user)
+        # Iterate over each saved item and retrieve the corresponding listing
+        for saved_item in saved_items:
+            listing = Listing.query.get(saved_item.listing_id)
+            if listing:
+                if listing.image:
+                    listing.encoded_image = base64.b64encode(listing.image).decode('utf-8')
+                else:
+                    listing.encoded_image = None
+                saved_listings.append(listing)
+
+        # Render account page and pass listings and saved_listings to the template
+        return render_template("account.html", listings=listings, saved_listings=saved_listings, user=user)
     else:
         flash("User not found", "error")
         return redirect(url_for("home"))
@@ -234,6 +253,22 @@ def search():
         result_list.append(result)
     return jsonify(result_list)
 
+
+# Save Item
+@app.route("/save_item/<int:listing_id>", methods=["POST"])
+@login_required
+def save_item(listing_id):
+    # Check if the item is already saved
+    if SavedItem.query.filter_by(user_id=current_user.id, listing_id=listing_id).first():
+        flash("Item is already saved", "info")
+    else:
+        # Save the item for the current user
+        saved_item = SavedItem(user_id=current_user.id, listing_id=listing_id)
+        db.session.add(saved_item)
+        db.session.commit()
+        flash("Item saved successfully", "success")
+    return redirect(url_for("home")) 
+    
 
 # Only for testing. Not needed in final version
 # @app.route("/404")
