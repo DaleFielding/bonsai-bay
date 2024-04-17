@@ -278,7 +278,7 @@
                 <button
                   class="listing-btn btn btn-secondary p-0 text-center"
                   data-bs-toggle="modal"
-                  data-bs-target="#deleteListingModal"
+                  data-bs-target="#deleteListingModal{{ listing.id }}"
                 >
                   Delete
                 </button>
@@ -490,7 +490,7 @@
               <!-- Delete Listing Modal -->
               <div
                 class="modal fade"
-                id="deleteListingModal"
+                id="deleteListingModal{{ listing.id }}"
                 tabindex="-1"
                 aria-labelledby="deleteListingModalLabel"
                 aria-hidden="true"
