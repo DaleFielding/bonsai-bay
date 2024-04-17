@@ -1,9 +1,13 @@
 {% extends "base.html" %} {% block content %}
 
 <div class="row center-all username-displayed">
-  <h2 class="col-12 text-center"></h2>
+  <div class="col-12 d-flex justify-content-end">
+    <div class="col-4 col-sm-3 col-md-2 center-all m-0 p-0">
+      <a href="/logout" class="btn btn-secondary filter-btn">Logout</a>
+    </div>
+  </div>
+  <h2 class="col-12 text-center">{{ user.username }}'s Account</h2>
 </div>
-
 <section class="accordion">
   <!-- Email -->
   <div class="accordion-item text-start">
@@ -21,8 +25,8 @@
     </h3>
     <div id="email" class="accordion-collapse collapse">
       <div class="accordion-body">
-        example@email.com
-        <button class="btn btn-secondary">Edit</button>
+        {{ user.email }}
+        <button class="btn btn-secondary disabled">Edit</button>
       </div>
     </div>
   </div>
@@ -43,10 +47,11 @@
     <div id="password" class="accordion-collapse collapse">
       <div class="accordion-body">
         ********
-        <button class="btn btn-secondary">Edit</button>
+        <button class="btn btn-secondary disabled">Edit</button>
       </div>
     </div>
   </div>
+
   <!-- Create Listings Form -->
   <div class="accordion-item text-start">
     <h3 class="accordion-header">
