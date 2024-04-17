@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (data.success) {
           loginMessage.innerHTML = `<div class="alert alert-success">${data.message}</div>`;
-          window.location.href = "/account";  // Redirect to account page
+          window.location.href = "/account";
         } else {
           loginMessage.innerHTML = `<div class="alert alert-danger">${data.message}</div>`;
         }
@@ -36,5 +36,24 @@ document.addEventListener("DOMContentLoaded", function () {
       .catch(error => {
         console.error("An error has occurred =", error);
       });
+  });
+});
+
+/*
+* Click event listener for the 'Account' nav button.
+* Checks if a user is logged in.
+* If logged in, it redirects to the users account page.
+* If not logged in the login/register modal pops up.
+*/
+$(document).ready(function () {
+  $('[data-account-link]').click(function (e) {
+    e.preventDefault();
+    $.get('/is_logged_in', function (data) {
+      if (data.logged_in) {
+        window.location.href = '/account';
+      } else {
+        $('#loginRegisterModal').modal('show');
+      }
+    });
   });
 });
