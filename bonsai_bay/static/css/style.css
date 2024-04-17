@@ -20,40 +20,20 @@ a {
   --my-green-faded: #095d4942;
   --my-lightest-grey: #f7f7f7;
   --my-light-grey: #eeeeee;
+  /* Fonts */
+  --my-heading-font: "Yeseva One", Calibri, serif;
+  --my-general-font: "Josefin Sans", Calibri, sans-serif;
 }
 
 * {
   color: var(--my-green);
+  font-family: var(--my-general-font);
+  font-weight: 400;
 }
 
-/* Temporary to assist with layout design - REMEMBER TO DELETE */
-.temp-box {
-  border: 1px solid rgb(5, 138, 0);
-  background-color: rgb(228, 226, 212);
-  height: 100px;
-}
-
-.temp-square {
-  min-width: 80px;
-  max-width: 80px;
-  aspect-ratio: 1/1;
-  background-color: red;
-}
-
-
-/* Logo */
-.logo {
-  width: 80px;
-  max-width: 25vw;
-}
-
-/* Main Image */
-.main-image {
-  width: 500px;
-  max-width: 50vw;
-  aspect-ratio: 1/1;
-  padding: 1rem;
-
+h1,
+h2 {
+  font-family: var(--my-heading-font);
 }
 
 /* Green Background Color */
@@ -103,12 +83,25 @@ footer {
   padding: 0.5rem;
 }
 
-/* Navbar */
+/* NAVBAR */
 .navbar {
   position: sticky;
   top: 0;
   width: 100%;
   z-index: 100;
+}
+
+.logo {
+  width: 80px;
+  max-width: 25vw;
+}
+
+.site-name h2 {
+  margin: 0;
+}
+
+.navbar-toggler {
+  width: auto;
 }
 
 /* Search Bar */
@@ -137,6 +130,15 @@ footer {
 .search-icon {
   color: white;
   font-size: 1.5rem;
+}
+
+/* Main Image */
+.main-image {
+  width: 500px;
+  max-width: 50vw;
+  aspect-ratio: 1/1;
+  padding: 1rem;
+
 }
 
 /* Item Cards */
