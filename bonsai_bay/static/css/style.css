@@ -20,6 +20,7 @@ a {
   --my-green-faded: #095d4942;
   --my-lightest-grey: #f7f7f7;
   --my-light-grey: #eeeeee;
+  --my-dark-red: #5d091d;
   /* Fonts */
   --my-heading-font: "Yeseva One", Calibri, serif;
   --my-general-font: "Josefin Sans", Calibri, sans-serif;
@@ -36,14 +37,13 @@ h2 {
   font-family: var(--my-heading-font);
 }
 
-/* Green Background Color */
+/* Colour Adjustments */
 .btn-secondary,
 #nav {
   background-color: var(--my-green);
 
 }
 
-/* White Text */
 .btn-secondary i,
 #nav a {
   color: white;
@@ -81,6 +81,10 @@ footer {
 .delete-btn {
   width: 100%;
   padding: 0.5rem;
+}
+
+.red-btn {
+  background-color: var(--my-dark-red);
 }
 
 /* NAVBAR */
