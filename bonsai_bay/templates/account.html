@@ -1,13 +1,13 @@
 {% extends "base.html" %} {% block content %}
 
 <div class="row center-all username-displayed">
-  <h4 class="col-12 text-center">Username</h4>
+  <h2 class="col-12 text-center"></h2>
 </div>
 
 <section class="accordion">
   <!-- Email -->
   <div class="accordion-item text-start">
-    <h2 class="accordion-header">
+    <h3 class="accordion-header">
       <button
         class="accordion-button"
         type="button"
@@ -18,7 +18,7 @@
       >
         Email
       </button>
-    </h2>
+    </h3>
     <div id="email" class="accordion-collapse collapse">
       <div class="accordion-body">
         example@email.com
@@ -28,7 +28,7 @@
   </div>
   <!-- Password -->
   <div class="accordion-item text-start">
-    <h2 class="accordion-header">
+    <h3 class="accordion-header">
       <button
         class="accordion-button"
         type="button"
@@ -39,7 +39,7 @@
       >
         Password
       </button>
-    </h2>
+    </h3>
     <div id="password" class="accordion-collapse collapse">
       <div class="accordion-body">
         ********
@@ -49,7 +49,7 @@
   </div>
   <!-- Create Listings Form -->
   <div class="accordion-item text-start">
-    <h2 class="accordion-header">
+    <h3 class="accordion-header">
       <button
         class="accordion-button"
         type="button"
@@ -60,7 +60,7 @@
       >
         Create New Listing
       </button>
-    </h2>
+    </h3>
     <div id="formCollapse" class="accordion-collapse collapse">
       <div class="accordion-body">
         <form
@@ -219,7 +219,7 @@
   </div>
   <!-- Listings -->
   <div class="accordion-item text-start">
-    <h2 class="accordion-header">
+    <h3 class="accordion-header">
       <button
         class="accordion-button"
         type="button"
@@ -230,7 +230,7 @@
       >
         Listings
       </button>
-    </h2>
+    </h3>
     <div id="listings" class="accordion-collapse collapse">
       <div class="accordion-body listings row center-all text-center">
         <!-- Listing -->
@@ -521,7 +521,7 @@
                           >
                             <button
                               type="submit"
-                              class="btn btn-danger delete-btn"
+                              class="btn btn-secondary red-btn delete-btn"
                             >
                               Yes
                             </button>
@@ -543,7 +543,7 @@
   </div>
   <!-- Saved Items -->
   <div class="accordion-item text-start">
-    <h2 class="accordion-header">
+    <h3 class="accordion-header">
       <button
         class="accordion-button"
         type="button"
@@ -554,7 +554,7 @@
       >
         Saved Items
       </button>
-    </h2>
+    </h3>
     <div id="saved-items" class="accordion-collapse collapse">
       <div class="accordion-body listings row center-all text-center">
         {% for saved_listing in saved_listings %}
