@@ -22,6 +22,7 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
     />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body
     data-user-logged-in="{{ 'true' if current_user.is_authenticated else 'false' }}"
@@ -71,13 +72,7 @@
             </li>
 
             <li class="nav-itemp-2">
-              <a
-                class="nav-link btn btn-link"
-                data-bs-toggle="modal"
-                data-bs-target="#loginRegisterModal"
-              >
-                Account
-              </a>
+              <a class="nav-link btn btn-link" data-account-link> Account </a>
             </li>
           </ul>
         </div>
