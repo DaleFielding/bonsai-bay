@@ -105,6 +105,19 @@ def login():
         return jsonify({"success": False, "message": "Invalid username/email/password. Please try again."})
 
 
+# Check if logged in
+@app.route("/is_logged_in")
+def is_logged_in():
+    return jsonify({"logged_in": current_user.is_authenticated})
+
+
+# Logout User
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('home'))
+
+
 # Account Page
 @app.route("/account")
 @login_required
