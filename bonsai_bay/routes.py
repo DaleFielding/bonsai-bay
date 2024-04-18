@@ -57,6 +57,8 @@ def listed_item(listing_id):
     # Query the database to obtain the listing_id or display 404
     listing = Listing.query.get_or_404(listing_id)
 
+    user = User.query.get(listing.user_id)
+
     # Encode image if found
     if listing.image:
         listing.encoded_image = base64.b64encode(listing.image).decode('utf-8')
@@ -64,7 +66,7 @@ def listed_item(listing_id):
         listing.encoded_image = None
 
     # Render the item page and pass listings to the template so that they can be displayed
-    return render_template("item.html", listing=listing)
+    return render_template("item.html", listing=listing, user=user)
 
 
 # Register User
