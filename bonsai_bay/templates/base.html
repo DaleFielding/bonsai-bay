@@ -30,7 +30,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark center-all" id="nav">
       <div class="container-fluid row">
         <div class="col-4 d-flex align-items-center">
-          <div class="col">
+          <div class="col animate-click">
             <a href="{{ url_for('home') }}">
               <img
                 src="{{ url_for('static', filename='assets/logo.png') }}"
@@ -38,14 +38,14 @@
               />
             </a>
           </div>
-          <div class="col-9 d-none d-md-block">
+          <div class="col-9 d-none d-md-block animate-click">
             <a href="{{ url_for('home') }}" class="site-name"
               ><h2>Bonsai Bay</h2></a
             >
           </div>
         </div>
         <button
-          class="navbar-toggler"
+          class="navbar-toggler animate-click"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
@@ -62,17 +62,21 @@
           <ul class="navbar-nav align-items-end gap-1">
             <li class="nav-item">
               <a
-                class="nav-link"
+                class="nav-link animate-click"
                 href="{{ url_for('browse_bonsai') }}#browse-bonsai"
                 >Browse Bonsai</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" data-toggle-search>Search</a>
+              <a class="nav-link animate-click" href="#" data-toggle-search
+                >Search</a
+              >
             </li>
 
             <li class="nav-itemp-2">
-              <a class="nav-link btn btn-link" data-account-link> Account </a>
+              <a class="nav-link btn btn-link animate-click" data-account-link>
+                Account
+              </a>
             </li>
           </ul>
         </div>
@@ -90,7 +94,7 @@
           />
           <button
             onclick="searchListings()"
-            class="btn btn-secondary search-btn"
+            class="btn btn-secondary search-btn animate-click"
             type="submit"
           >
             <i class="fa-solid fa-magnifying-glass search-icon"></i>
@@ -115,7 +119,7 @@
             </h5>
             <button
               type="button"
-              class="btn-close"
+              class="btn-close animate-click"
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
@@ -159,7 +163,7 @@
                       <div class="col-12 center-all">
                         <button
                           type="submit"
-                          class="btn btn-secondary listing-btn"
+                          class="btn btn-secondary listing-btn animate-click"
                         >
                           Login
                         </button>
@@ -250,7 +254,7 @@
                       <div class="col-12 center-all">
                         <button
                           type="submit"
-                          class="btn btn-secondary listing-btn"
+                          class="btn btn-secondary listing-btn animate-click"
                         >
                           Register
                         </button>

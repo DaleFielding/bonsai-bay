@@ -87,6 +87,16 @@ footer {
   background-color: var(--my-dark-red);
 }
 
+/* Responses */
+.animate-click:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+
+.animate-click:active {
+  transform: scale(0.95);
+}
+
 /* NAVBAR */
 .navbar {
   position: sticky;
