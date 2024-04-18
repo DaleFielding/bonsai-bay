@@ -1,9 +1,9 @@
-from flask import render_template, request, redirect, url_for, flash, jsonify
+from flask import render_template, request, redirect, url_for, flash, jsonify, Response
 from bonsai_bay import app, db
 from bonsai_bay.models import Listing, User, SavedItem
 from flask_login import login_user, login_required, current_user, logout_user
 from datetime import datetime
-import base64
+import base64, os, requests
 
 # Temporary, I will include within the appropriate route once I set up registration and login.
 @app.context_processor
@@ -283,6 +283,21 @@ def save_item(listing_id):
         flash("Item saved successfully", "success")
     return redirect(url_for("home")) 
     
+
+# Get City 
+@app.route('/get_city/<latitude>/<longitude>')
+def get_city(latitude, longitude):
+    # gets the api key from env.py
+    api_key = os.getenv('LOCATIONIQ_API_KEY')
+    # Sends a reuqest to the API with the coords
+    response = requests.get(f'https://us1.locationiq.com/v1/reverse.php?key={api_key}&lat=${latitude}&lon=${longitude}&format=json')
+    # Parses with JSON
+    data = response.json()
+    city = data.get('address', {}).get('city', 'City not found')
+    # Returns the city as plain text
+    return Response(city, mimetype='text/plain')
+
+
 
 # Only for testing. Not needed in final version
 # @app.route("/404")
