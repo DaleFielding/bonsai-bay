@@ -3,8 +3,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from sqlalchemy.orm import relationship
 from flask_login import UserMixin
 
-# table schemas:
 
+# table schemas:
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(25), unique=True, nullable=False)
@@ -28,6 +28,7 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         return '<Name %r>' % self.username
 
+
 class Listing(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(25), nullable=False)
@@ -35,14 +36,18 @@ class Listing(db.Model):
     tree_type = db.Column(db.String(25), nullable=False)
     indoor_outdoor = db.Column(db.String(7), nullable=False)
     description = db.Column(db.Text, nullable=False)
-    height = db.Column(db.Numeric(precision=5), nullable=False) 
+    height = db.Column(db.Numeric(precision=5), nullable=False)
     price = db.Column(db.Numeric(precision=10, scale=2), nullable=False)
     care_tips = db.Column(db.String(200), nullable=False)
     image = db.Column(db.LargeBinary, nullable=False)
     date_added = db.Column(db.Date, nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id", ondelete="CASCADE"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey(
+        "user.id", ondelete="CASCADE"), nullable=False)
 
-class SavedItem(db.Model): 
+
+class SavedItem(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    listing_id = db.Column(db.Integer, db.ForeignKey("listing.id", ondelete="CASCADE"), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id", ondelete="CASCADE"), nullable=False)
+    listing_id = db.Column(db.Integer, db.ForeignKey(
+        "listing.id", ondelete="CASCADE"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey(
+        "user.id", ondelete="CASCADE"), nullable=False)

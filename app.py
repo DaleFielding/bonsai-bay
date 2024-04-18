@@ -1,4 +1,4 @@
-import os 
+import os
 from bonsai_bay import app, db
 from flask_migrate import Migrate
 
@@ -10,4 +10,3 @@ if __name__ == "__main__":
         port=int(os.environ.get("PORT")),
         debug=os.environ.get("DEBUG")
     )
-
