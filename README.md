@@ -184,3 +184,16 @@ I have listed the pages below including the features they will contain.
   <details><summary>404 page</summary>
     <img src="resources/wireframe-404-page.png">
   </details>
+
+### Surface
+#### Habits and conventions:
+Users will navigate through the site by clicking on the links in the navbar, scrolling down the pages, through clicking on the various buttons and interactive elements within the site.
+
+#### Typography
+I have chosen a combination of google fonts “Yeseva One” for the larger headers and “Josefin sans” for the general font. I feel these have a nice style, complement each other nicely, and are clear and readable. 
+
+#### Colour Scheme:
+* The colour scheme is relatively simple. I have used white and dark green for the majority of the site (#095D49), this is because I wanted a colour choice that would compliment the bonsai trees well. 
+I have also chosen to grey’s (#f7f7f7 + #eeeeee)as well to make some areas subtly standout compared to the background (such as the footer and parts of the accordion)
+There is use of a dark red for warning buttons (#5d091d)
+* The chosen colour scheme meets the Web Content Accessibility Guidelines for readability.
