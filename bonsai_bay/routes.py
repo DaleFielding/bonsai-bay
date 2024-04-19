@@ -128,7 +128,7 @@ def logout():
 
 # Account Page
 @app.route("/account")
-# @login_required
+@login_required
 def account():
     # Check if a logged in user
     if current_user.is_authenticated:
