@@ -47,10 +47,62 @@
 </div>
 <div class="row center-all pt-2">
   <div class="col-10 col-sm-8 col-md-6 col-lg-4 item-btn-container center-all">
-    <button href="#" class="item-btn btn btn-secondary disabled">
+    <button
+      type="button"
+      class="item-btn btn btn-secondary"
+      data-bs-toggle="modal"
+      data-bs-target="#messageModal"
+    >
       Message Seller
     </button>
   </div>
+
+  <div
+    class="modal fade"
+    id="messageModal"
+    tabindex="-1"
+    aria-labelledby="messageModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title p-3" id="messageModalLabel">Message Seller</h3>
+          <button
+            type="button"
+            class="btn-close animate-click"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <textarea class="form-control mb-2" rows="3"></textarea>
+          <p data-message-sent>&nbsp;</p>
+          <div class="row justify-content-between">
+            <div class="col-8 col-sm-4 mb-3 center-all">
+              <button
+                type="button"
+                class="btn btn-secondary delete-btn animate-click"
+                data-bs-dismiss="modal"
+              >
+                Go Back
+              </button>
+            </div>
+            <div class="col-8 col-sm-4 mb-3 center-all">
+              <button
+                type="button"
+                class="btn btn-secondary delete-btn animate-click"
+                onclick="messageSent(event)"
+              >
+                Send
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="col-10 col-sm-8 col-md-6 col-lg-4 item-btn-container center-all">
     <form
       class="item-btn"
