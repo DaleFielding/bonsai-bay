@@ -264,7 +264,7 @@
           <div class="item-card-container">
             <div class="item-card item-card item-card-small">
               <div class="listing">
-                <h6>{{ listing.title }}</h6>
+                <p>{{ listing.title }}</p>
               </div>
               <div>
                 {% if listing.encoded_image %}
@@ -315,9 +315,9 @@
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="editModalLabel">
+                      <p class="modal-title" id="editModalLabel">
                         Edit Listing
-                      </h5>
+                      </p>
                       <button
                         type="button"
                         class="btn-close"
@@ -609,7 +609,7 @@
             >
               <div class="item-card item-card-small">
                 <div class="listing">
-                  <h6>{{ saved_listing.title }}</h6>
+                  <p>{{ saved_listing.title }}</p>
                 </div>
                 <div>
                   {% if saved_listing.encoded_image %}

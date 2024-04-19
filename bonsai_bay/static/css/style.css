@@ -180,6 +180,10 @@ footer {
   height: auto;
 }
 
+.listing-title {
+  font-size: 1.2rem;
+}
+
 /* Item Description */
 .item-description-container {
   padding: 1rem
@@ -224,6 +228,11 @@ footer {
 
 .accordion-button:focus {
   box-shadow: 0 0 0 0.25rem var(--my-green-faded);
+}
+
+/* Model */
+.modal-title {
+  font-size: 1.2rem;
 }
 
 /* Browse Bonsai Button Scroll */
