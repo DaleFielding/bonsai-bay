@@ -34,3 +34,13 @@ No errors or warnings displayed.
 I have entered my external css file into the validator:
 * No errors found.
 * Warnings appear in relation to using variables for the colours/fonts. I have left these in as css variables were taught in one of the codeinstitute lessons.
+
+### Wave - Web Accessible Evaluation Tool
+* Error = Search-bar input didn't have a corresponding label, I have added this now but made sure it is visually hidden.
+* Error = 2x buttons that were empty, I have changed these elements to divs. These are currently just for display purposes, as functionality will be in future implimentations.
+* Error = 1x button said to be empty, although has an icon as the value. I have fixed this by adding an aria-label for screen readers.
+* Warning = Missing first level headings, changed `<h2>` to`< h1>` and `<h3>` to `<h2>`.
+* Warning = Skipped level heading, referring to the `<h6>` tags for the listing titles, fixed these by changing to `<h4>` tags.
+* Warning = redundant link as there is more than one link for home on the navbar, this was on the logo and the site name which are next to each other. Fixed by combining into one anchor tag.
+* Warning = Redundant links for ‘Browse Bonsai’ as there is a link for this in the navbar and a link below the intro message on the main page. I have left this in as believe it is a key part in the design. This only happens on the homepage.
+
