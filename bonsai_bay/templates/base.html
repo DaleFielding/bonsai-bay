@@ -38,20 +38,20 @@
   >
     <nav class="navbar navbar-expand-lg navbar-dark center-all" id="nav">
       <div class="container-fluid row">
-        <div class="col-4 d-flex align-items-center">
-          <div class="col animate-click">
+        <div class="col-5 d-flex align-items-center text-start animate-click">
+          <div>
             <a href="{{ url_for('home') }}">
               <img
                 src="{{ url_for('static', filename='assets/logo.png') }}"
                 class="logo"
-                alt="logo"
+                alt="bonsai-bay site logo"
               />
             </a>
           </div>
-          <div class="col-9 d-none d-md-block animate-click">
-            <a href="{{ url_for('home') }}" class="site-name"
-              ><h2>Bonsai Bay</h2></a
-            >
+          <div class="col-9 d-none d-md-block ps-1">
+            <a href="{{ url_for('home') }}" class="site-name">
+              <h1 class="m-0">Bonsai Bay</h1>
+            </a>
           </div>
         </div>
         <button
