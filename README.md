@@ -1,9 +1,9 @@
 # Bonsai Bay
 The purpose of this site is to provide a platform for bonsai enthusiasts, both individuals and businesses, to digitally market their bonsai trees or browse and purchase trees listed on the website. It will feature a relational database designed to store all relevant information necessary for the site's operation.
 
-(Heroku link to be added)
+### [View the live project here](https://bonsai-bay-118c459daa3f.herokuapp.com/)
 
-(Mock-up image to be added)
+![mockup-bonsai-bay-site](mockup-bonsai-bay-site.png)
 
 ## Table of Contents
 1. [User Experience (UX)](#user-experience-ux)
