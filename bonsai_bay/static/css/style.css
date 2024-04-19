@@ -203,6 +203,10 @@ footer {
   padding: 1rem;
 }
 
+.confirm-delete-message {
+  color: var(--my-dark-red)
+}
+
 /* Account Page */
 .username-displayed {
   margin-top: 5rem;
