@@ -22,10 +22,15 @@ No errors or warnings displayed.
 
 * Account page:
   * Error = HTTP resource not retrievable (401). This is due to the authentication required before the account page can be accessed. Fixed this by adding logic to the account route that handled the absence of a user being logged in. Also temporarily commented out login_required so that the template could run through the validator.
-  * Error = Duplicate id ‘email’ one in base template and one in account template, fixed by renaming the if in account template as well as the relevant data-bs-target
-  * Warning = Min and max attributes not allowed in textarea (x2), I have removed these
+  * Error = Duplicate id ‘email’ one in base template and one in account template, fixed by renaming the if in account template as well as the relevant data-bs-target.
+  * Warning = Min and max attributes not allowed in textarea (x2), I have removed these.
   * Warning  = Accidentally included `]`  as an attribute within a textarea, fixed by removing this.
-  * After these changes, no errors or warnings displayed
+  * After these changes, no errors or warnings displayed.
 
 * Item page: 
   * No errors or warnings to show.
+
+### WSC - CSS Validation Service
+I have entered my external css file into the validator:
+* No errors found.
+* Warnings appear in relation to using variables for the colours/fonts. I have left these in as css variables were taught in one of the codeinstitute lessons.
