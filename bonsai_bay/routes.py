@@ -309,7 +309,8 @@ def get_city(latitude, longitude):
     return Response(city, mimetype='text/plain')
 
 
-# Only for testing. Not needed in final version
-@app.route("/404")
-def errorpage():
-    return render_template("404.html")
+# 404
+@app.errorhandler(404)
+# Renders the 404 page if there is a 404 error in url
+def page_not_found(e):
+    return render_template('404.html'), 404
