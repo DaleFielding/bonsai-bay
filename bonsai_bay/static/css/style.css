@@ -180,16 +180,6 @@ footer {
   height: auto;
 }
 
-.listing-title {
-  font-size: 1.2rem;
-}
-
-.listing-header {
-  font-size: 1.4rem;
-  margin: 0.5rem;
-}
-
-
 /* Item Description */
 .item-description-container {
   padding: 1rem
