@@ -310,6 +310,6 @@ def get_city(latitude, longitude):
 
 
 # Only for testing. Not needed in final version
-# @app.route("/404")
-# def errorpage():
-#     return render_template("404.html")
+@app.route("/404")
+def errorpage():
+    return render_template("404.html")
