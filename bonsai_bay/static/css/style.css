@@ -228,3 +228,13 @@ footer {
 html {
   scroll-behavior: smooth;
 }
+
+/* MEDIA QUERIES */
+/* Landscape on smaller devices */
+@media (orientation: landscape) and (max-width: 992px) and (min-width: 320px) {
+
+  .navbar,
+  .search-bar {
+    position: static;
+  }
+}
