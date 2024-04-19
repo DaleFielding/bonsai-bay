@@ -22,20 +22,20 @@
   <div class="col-sm-10 col-md-6">
     <div class="item-description-container">
       <div class="item-description">
-        <h5>Description:</h5>
+        <p class="listing-header">Description:</p>
         <p>{{ listing.description }}</p>
-        <h5>Care Tips:</h5>
+        <p class="listing-header">Care Tips:</p>
         <p>{{ listing.care_tips }}</p>
-        <h5>Features:</h5>
+        <p class="listing-header">Features:</p>
         <ul>
           <li>Species = {{ listing.species }}</li>
           <li>Type = {{ listing.tree_type }}</li>
           <li>Indoor/Outdoor = {{ listing.indoor_outdoor }}</li>
           <li>Height = {{ listing.height }}</li>
         </ul>
-        <h5>Date Added:</h5>
+        <p class="listing-header">Date Added:</p>
         <p>{{ listing.date_added.strftime('%d/%m/%y') }}</p>
-        <h5>Seller Location:</h5>
+        <p class="listing-header">Seller Location:</p>
         <p>{{ user.location }}</p>
       </div>
     </div>
