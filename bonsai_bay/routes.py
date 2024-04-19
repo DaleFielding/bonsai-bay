@@ -128,7 +128,7 @@ def logout():
 
 # Account Page
 @app.route("/account")
-@login_required
+# @login_required
 def account():
     user = current_user
     if user:
