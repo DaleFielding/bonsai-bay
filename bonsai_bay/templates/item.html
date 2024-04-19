@@ -9,13 +9,9 @@
           <p class="listing-title">{{ listing.title }}</p>
         </div>
         <div>
-          {% if listing.encoded_image %}
-          <img
-            src="data:image/png;base64,{{ listing.encoded_image }}"
-            class="img-fluid"
-            alt="Image of listing"
-          />
-          {% else %}
+          {% if listing.encoded_image %} <img src="data:image/png;base64,{{
+          listing.encoded_image }}" class="img-fluid" alt="Image of listing {{
+          listing.id }}"" /> {% else %}
           <p>No image available</p>
           {% endif %}
           <p>&pound;{{ listing.price }}</p>
