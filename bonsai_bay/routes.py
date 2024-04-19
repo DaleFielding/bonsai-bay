@@ -130,43 +130,50 @@ def logout():
 @app.route("/account")
 # @login_required
 def account():
-    user = current_user
+    # Check if a logged in user
+    if current_user.is_authenticated:
+        user = current_user
+    else:
+        # If not, set user to None
+        user = None
+
     if user:
         # Query all listings for the current user
         user_listings = Listing.query.filter_by(user_id=user.id).all()
 
         # query all saved items for the current user
         saved_items = SavedItem.query.filter_by(user_id=user.id).all()
+    else:
+        # If user isn't loggged in, set listings and saved items to empty
+        user_listings = []
+        saved_items = []
+    
+    # create empty lists for listings and save_listings
+    listings = []
+    saved_listings = []
 
-        # create empty lists for listings and save_listings
-        listings = []
-        saved_listings = []
+    # Iterate over each listing and encode the image
+    for listing in user_listings:
+        if listing.image:
+            listing.encoded_image = base64.b64encode(
+                listing.image).decode('utf-8')
+        else:
+            listing.encoded_image = None
+        # Append to the listings list
+        listings.append(listing)
 
-        # Iterate over each listing and encode the image
-        for listing in user_listings:
+    for saved_item in saved_items:
+        listing = Listing.query.get(saved_item.listing_id)
+        if listing:
             if listing.image:
                 listing.encoded_image = base64.b64encode(
                     listing.image).decode('utf-8')
             else:
                 listing.encoded_image = None
-            # Append to the listings list
-            listings.append(listing)
+            saved_listings.append(listing)
 
-        for saved_item in saved_items:
-            listing = Listing.query.get(saved_item.listing_id)
-            if listing:
-                if listing.image:
-                    listing.encoded_image = base64.b64encode(
-                        listing.image).decode('utf-8')
-                else:
-                    listing.encoded_image = None
-                saved_listings.append(listing)
-
-        # Render account page and pass listings and saved_listings to the template
-        return render_template("account.html", listings=listings, saved_listings=saved_listings, user=user)
-    else:
-        flash("User not found", "error")
-        return redirect(url_for("home"))
+    # Render account page and pass listings and saved_listings to the template
+    return render_template("account.html", listings=listings, saved_listings=saved_listings, user=user)
 
 
 # Create Listing
