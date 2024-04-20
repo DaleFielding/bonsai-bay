@@ -83,5 +83,25 @@ Details of the JSLint results for each page can be seen below:
 * Warning = Some lines with trailing spaces. Fixed by removing these
 * Warning = Suggested double quotes be used instead of single quotes inside functions. Fixed by amending these.
 * Warning = Expected closing brace and instead saw backtick. There are no problems in the terminal and function works are expected. I can only assume JSLint seems to be having issues with backticks as were not previously supported.
-* Functionality still works as expected after these changes
+* Functionality still works as expected after these changes.
+
+### CI Python Lynter:
+#### __init__.py:
+* A couple of lines longer than 80 characters. Fixed by reducing the amount of words used.
+* No new line space at the end of the file. Fixed by adding a newline at the end.
+* Module level import not at top of file; referring to `from bonsai_bay import routes`. This position is required for the app to function correctly, so I am leaving this where it is.
+
+#### Models.py: 
+* No errors found or amendments needed.
+
+#### Routes.py:
+* Quite a few of lines longer than 80 characters. Fixed by reducing the amount of words used or splitting over two/three lines, sometimes using `\` to show it is a continuation of the same line
+* Blank line contained a whitespace. Fixed by removing this.
+
+#### App.py:
+* No errors found or amendments needed.
+
+#### Env.py:
+* One line longer than 80 characters. Fixed this by splitting across 3 lines.
+
 
