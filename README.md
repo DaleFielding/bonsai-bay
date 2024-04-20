@@ -197,3 +197,77 @@ I have chosen a combination of google fonts “Yeseva One” for the larger head
 I have also chosen to grey’s (#f7f7f7 + #eeeeee)as well to make some areas subtly standout compared to the background (such as the footer and parts of the accordion)
 There is use of a dark red for warning buttons (#5d091d)
 * The chosen colour scheme meets the Web Content Accessibility Guidelines for readability.
+
+## Features
+### General
+* Responsive on all device sizes.
+* Meta descriptions included to improve SEO.
+* Semantic elements, alt attributes and sr attributes to assist with accessibility/screen readers.
+* Connected to a location api (locationiq.com) where data location data is fetched and city is displayed within the site
+* All active buttons and anchor tags on the site provide visual responses to hover and click.
+
+### Navbar (displayed on all pages)
+#### Site header
+* Includes logo and site name
+* When clicked with directs to/reloads the homepage
+* The site name will disappear on smaller devices sizes
+
+#### Navigation links (displayed on all pages)
+* Browse Bonsai:
+  * Directs user to specific area where the listings are displayed on the homepage; listing data is pulled from the database.
+* Search:
+  * When clicked it opens up a search bar and a search icon.
+  * Users can then do a keyword search and press the enter key on their keyboard, or the search icon to generate the search. 
+  * They are then directed to the specific section in the homepage where these results are displayed
+* Account:
+  * Initially this will pop up with a model containing two forms (login or register).
+  * They contain form validation. 
+  * They display colourful alerts to indicate whether a submission has been successful.
+  * The registration form contains a location icon that when click will attempt to locate the borrowers city.
+
+### Footer (displayed on all pages)
+* Contains social media links for; Facebook, Twitter and Instagram.
+* Copyright 2024 is included
+* Contains an address for the company, location finder, and contact details
+
+### Homepage
+* An introduction message that says ‘Trading Tiny Tree Together’.
+* The main image, which is someone holding a bonsai tree out as if passing it to someone as a gift.
+* Filter button for filtering search results. This is currently disabled but will be a future implementation.
+* Listing header and the individual listings are displayed below, with title, image and price of the listing. 
+* Chevrons for left and right to indicate pagination. This is currently disabled but will be a future implementation.
+
+### Item Page:
+* An enlarged item card of the listing for better viewing
+* Displays details of the listing such as; description, care tips, features, date added, and seller location.
+* A ‘Message Seller’ Button:
+   * When clicked this displays a modal with a textarea for a message to be typed.
+  * A ‘Go Back’ button, which closes the modal when clicked
+  * A ‘Send’ button, which when clicked displays a message below the textarea to say ‘Your message has been sent’. The message is currently not stored within the db, however it is intended that a full functional messaging system is set up as a future function.
+* A ‘Save Item’ button. When clicked this saves the item to the database which is then displayed in the account page for the specific user that is logged in.
+* A ‘Back to Homepage’ button. When clicked it directs the user back to the homepage.
+
+### Account page
+* A button to logout, which logs the user out and directs them to the homepage
+* A header that displays “(Username)’s Account”; user data is pulled from the database
+* An accordion containing:
+  * Email + password:
+    * When expanded this shows the users email address; user data is pulled from the database.
+    * Password is merely a few asterix’s for display purposes, not actually associated with the users password.
+    * Edit buttons. These are currently disabled but will be a future implementation.
+  * Create New Listing:
+    * This contains a form for a number of fields that are appropriate to the listings; text, radio, textarea, image, and number. 
+    * These all have form validation based on the expectation from the db model. 
+    * A Create Listing button that when clicked adds the listing to the db under the table ‘Listing’. These are then displayed appropriately within the site.
+  * Listings:
+    * Displays the listings as item cards in a grid that the currently logged in user has created.
+    * An edit button under each item card, which opens up a model form that is pre-populated with that particular listing’s information. When clicking ‘Save Changes’, all fields will update accordingly for that listing within the database and across the site.
+    * A delete button under each item card, which opens up a model that allows the user to confirm whether they wish to delete the listing or press no to go back. If yes is clicked the listing will be removed from the database and will no longer be displayed throughout the site.
+  * Saved Items:
+    * Displays listing as item cards in a grid. 
+    * When clicked this opens the item page.
+    * A remove button; this is currently disabled but will be a future feature.
+
+  **Note. the ability to create, read, update and delete can all be done in full within the create listings and listings sections.**
+
+
