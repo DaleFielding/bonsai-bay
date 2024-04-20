@@ -2,12 +2,13 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from flask_compress import Compress
 
-# env is only imported if the os can find an existing filepath for the env.py file
+# env imported if the os can find an existing filepath for the env.py file
 if os.path.exists("env.py"):
     import env
 
-# Create an instance of the imported flask class and store in a variable called app
+# Create instance of the imported flask class, store in a variable called app
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 

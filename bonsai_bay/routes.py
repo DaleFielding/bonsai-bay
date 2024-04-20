@@ -1,4 +1,5 @@
-from flask import render_template, request, redirect, url_for, flash, jsonify, Response
+from flask import redirect, url_for, flash, jsonify, Response
+from flask import render_template, request
 from bonsai_bay import app, db
 from bonsai_bay.models import Listing, User, SavedItem
 from flask_login import login_user, login_required, current_user, logout_user
@@ -29,7 +30,7 @@ def home():
         else:
             listing.encoded_image = None
 
-    # Render homepage page and pass listings to the template so that they can be displayed
+    # Render homepage page and pass listings to the template to display
     return render_template("index.html", listings=listings)
 
 
@@ -47,8 +48,10 @@ def browse_bonsai():
         else:
             listing.encoded_image = None
 
-    # Render homepage page and pass listings to the template so that they can be displayed
-    return render_template("index.html", listings=listings, scroll_to="browse-bonsai")
+    # Render homepage page and pass listings to the template to display
+    return render_template(
+        "index.html", listings=listings, scroll_to="browse-bonsai"
+        )
 
 
 # Item Page with listing id passed in
@@ -65,7 +68,7 @@ def listed_item(listing_id):
     else:
         listing.encoded_image = None
 
-    # Render the item page and pass listings to the template so that they can be displayed
+    # Render the item page and pass listings to the template to display
     return render_template("item.html", listing=listing, user=user)
 
 
@@ -77,17 +80,23 @@ def register():
     password = request.form.get("password")
     location = request.form.get("location")
 
+
     # Check if the user already exists
-    if User.query.filter_by(username=username).first() or User.query.filter_by(email=email).first():
-        return jsonify({"success": False, "message": "User already exists, please login if this is you."})
+    if User.query.filter_by(username=username).first() or \
+            User.query.filter_by(email=email).first():
+        return jsonify({
+            "success": False,
+            "message": "User already exists, please login if this is you."
+        })
 
-    # Create a new user object and save it to the database
-    new_user = User(username=username, email=email, location=location)
-    new_user.password = password
-    db.session.add(new_user)
-    db.session.commit()
-
-    return jsonify({"success": True, "message": "Registration was successful."})
+        # Create a new user object and save it to the database
+        new_user = User(username=username, email=email, location=location)
+        new_user.password = password
+        db.session.add(new_user)
+        db.session.commit()
+        return jsonify({
+            "success": True, "message": "Registration was successful."
+        })
 
 
 # User Login
@@ -110,7 +119,10 @@ def login():
         return jsonify({"success": True, "message": "Login successful"})
     else:
         # Return JSOn unsuccesful response with message
-        return jsonify({"success": False, "message": "Invalid username/email/password. Please try again."})
+        return jsonify({
+            "success": False, "message":
+                "Invalid username/email/password. Please try again."
+            })
 
 
 # Check if logged in
@@ -147,7 +159,7 @@ def account():
         # If user isn't loggged in, set listings and saved items to empty
         user_listings = []
         saved_items = []
-    
+
     # create empty lists for listings and save_listings
     listings = []
     saved_listings = []
@@ -173,7 +185,10 @@ def account():
             saved_listings.append(listing)
 
     # Render account page and pass listings and saved_listings to the template
-    return render_template("account.html", listings=listings, saved_listings=saved_listings, user=user)
+    return render_template(
+            "account.html",
+            listings=listings, saved_listings=saved_listings, user=user
+        )
 
 
 # Create Listing
@@ -247,7 +262,7 @@ def edit_listing(listing_id):
 # Delete Listing
 @app.route("/delete_listing/<int:listing_id>", methods=["POST"])
 def delete_listing(listing_id):
-    # Added check for POST to ensure delete only takes place after confirmation/when the form is submitted
+    # Check if POST to ensure delete only takes place after confirmation
     if request.method == "POST":
         # Query the database to obtain the listing_id or display 404
         listing = Listing.query.get_or_404(listing_id)
@@ -290,7 +305,9 @@ def search():
 @login_required
 def save_item(listing_id):
     # Check if the item is already saved
-    if SavedItem.query.filter_by(user_id=current_user.id, listing_id=listing_id).first():
+    if SavedItem.query.filter_by(
+            user_id=current_user.id, listing_id=listing_id
+            ).first():
         flash("Item is already saved", "info")
     else:
         # Save the item for the current user
@@ -308,7 +325,8 @@ def get_city(latitude, longitude):
     api_key = os.getenv('LOCATIONIQ_API_KEY')
     # Sends a reuqest to the API with the coords
     response = requests.get(
-        f'https://us1.locationiq.com/v1/reverse.php?key={api_key}&lat=${latitude}&lon=${longitude}&format=json')
+        f'https://us1.locationiq.com/v1/reverse.php?key={api_key}'
+        f'&lat={latitude}&lon={longitude}&format=json')
     # Parses with JSON
     data = response.json()
     city = data.get('address', {}).get('city', 'City not found')
