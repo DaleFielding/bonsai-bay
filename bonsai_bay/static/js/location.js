@@ -1,3 +1,5 @@
+/*global fetch, navigator, console*/
+
 /**
 * determineCity async function:
 * Passes in latitude and longitude coordinates
@@ -14,28 +16,39 @@ async function determineCity(latitude, longitude) {
 * Check if geolocation is supported
 * If succesful it gets the users position and determines the city
 * If city found, updates 'location' element value.
-* If not, displays an alerts that says No city found or location access denied.
+* If not, displays an alert that says No city found or location access denied.
 * Also alerts user if geolocation not supported
-* Logs any errors, then alerts "Error fetching information".
+* Displays any errors within the innerHTML, adding bootstap alert styling.
 **/
-document.querySelector('[data-get-location]').addEventListener('click', async function () {
-  try {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(async function (position) {
-        const latitude = position.coords.latitude;
-        const longitude = position.coords.longitude;
-        const city = await determineCity(latitude, longitude);
-        if (city) {
-          document.getElementById('location').value = city;
-        } else {
-          alert("No city found or location access denied");
-        }
-      });
-    } else {
-      alert("Geolocation is not supported by this browser.");
+document.querySelector("[data-get-location]")
+  .addEventListener("click", function () {
+    try {
+      if (navigator.geolocation !== undefined) {
+        navigator.geolocation.getCurrentPosition(async function (position) {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+          const city = await determineCity(latitude, longitude);
+          const cityFoundMsg = document.querySelector("[data-city-found]");
+          if (city) {
+            document.getElementById("location").value = city;
+            cityFoundMsg.innerHTML =
+              `<div class="alert alert-success">Location found</div>`;
+          } else {
+            cityFoundMsg.innerHTML =
+              `<div class="alert alert-danger">
+              No city found or location access denied
+              </div>`;
+          }
+        });
+      } else {
+        const cityFoundMsg = document.querySelector("[data-city-found]");
+        cityFoundMsg.innerHTML =
+          `<div class="alert alert-danger">Geolocation isn't supported by this browser.</div>`;
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      const cityFoundMsg = document.querySelector("[data-city-found]");
+      cityFoundMsg.innerHTML =
+        `<div class="alert alert-danger">Error fetching information</div>`;
     }
-  } catch (error) {
-    console.error('Error:', error);
-    alert("Error fetching information");
-  }
-});
+  });
