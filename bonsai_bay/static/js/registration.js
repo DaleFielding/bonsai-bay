@@ -5,13 +5,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /*
   * Ability to access the registerForm element and prevent default submission
-  * An event listener that is triggered when the forms register button is clicked.
+  * An event listener that is triggered when the register button is clicked.
   * Use built in FormData constructor to build a set of key value pairs.
-  * Then POST form data to server, then parse reponse as json 
+  * Then POST form data to server, then parse reponse as json.
   * Access the registration-messages data attribute for message to be displayed.
   * Then display either success or error and include bootstrap alert classes.
-  * Reset form if registration is successful. 
-  * Catch any errors
+  * Reset form if registration is successful.
+  * Catch any errors.
   */
   registerForm.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -19,22 +19,26 @@ document.addEventListener("DOMContentLoaded", function () {
     const formData = new FormData(registerForm);
 
     fetch(registerForm.action, {
+      body: formData,
       method: "POST",
-      body: formData
     })
-      .then(response => response.json())
-      .then(data => {
-
-        const registrationMessage = document.querySelector("[data-registration-message]");
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        const registrationMessage
+          = document.querySelector("[data-registration-message]");
 
         if (data.success) {
-          registrationMessage.innerHTML = `<div class="alert alert-success">${data.message}</div>`;
+          registrationMessage.innerHTML
+            = `<div class="alert alert-success">${data.message}</div>`;
           registerForm.reset();
         } else {
-          registrationMessage.innerHTML = `<div class="alert alert-danger">${data.message}</div>`;
+          registrationMessage.innerHTML
+            = `<div class="alert alert-danger">${data.message}</div>`;
         }
       })
-      .catch(error => {
+      .catch(function (error) {
         console.error("An error has accured =", error);
       });
   });
