@@ -2,13 +2,14 @@
 
 /**
 * determineCity async function:
-* Passes in latitude and longitude coordinates
-* Fetches the city name and returns
+* Passes in latitude and longitude coordinates.
+* Fetches the city name and returns.
+* Returns null is city isn't found.
 **/
 async function determineCity(latitude, longitude) {
   const response = await fetch(`/get_city/${latitude}/${longitude}`);
   const city = await response.text();
-  return city;
+  return city !== 'City not found' ? city : null;
 }
 
 /**
