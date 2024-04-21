@@ -270,3 +270,42 @@ Result = Fail: There is currently functionality which has the appearance of a me
     <img src="bonsai_bay/static/assets/user-stories/message-seller-modal.png">
 </details>
 
+## Bugs:
+Flask migrations:
+* Bug = After removing the seller table from the database model, it would not allow the flask migration to take place. It was flagging up that it there were dependant objects so it was not possible to drop the listing_seller_id_fkey
+* Outcome = I tried dropping this manually by using sql commands that I had found, however this did not resolve the issue. I was able to locate some information about editing the migration script directly. I made the appropriate amendments and the migration was successful following this.
+
+Images:
+* Bug = Instead of an image being displayed, I was getting a long string of what appeared to random character.
+* Outcome = Fixed by including image encoding with the route, and passing in the encoded image into the relevant template
+
+SearchListings function:
+* Bug = I had initially set up the function to only search by listing title, there are many other categories for the listed items so this was really limiting the accuracy
+* Outcome = I updated the results_list to include the other listing data that I wanted to be displayed, encoded the image and then update my javascript code to display the details.
+
+Account navigation button:
+* Bug = Each time the account link was clicked it would pop up with a model asking for the user to login or register, even if the user is already logged in.
+* Outcome = Fixed by adding a route to check whether there is a user currently logged in then return a response to confirm, and created JS/Jquery functionality to redirect user to their account page if logged in.
+
+Delete listing button:
+* Bug = When the delete button was clicked I noticed this wasn’t deleting the intended listing.
+* Outcome = Fixed this by passing the listing.id into a data-bs-target attribute within the model and updated the id to match this attribute.
+
+Storing API key:
+* Bug = The location function was working perfectly with the API passed in, however when this key was stored in a variable in another folder then passed into the location function it didn’t work and was displaying errors. 
+* Outcome = Managed to get this working by creating a route called get_city to handle the API key and keep it server side, then return the relevant data to client side. To be used within the determineCity function. 
+
+Creating the database with Heroku:
+* Bug = When trying to import the database this was encountering an error relation to sqlalchemy being unable to create an engine.
+* Attempts to fix:
+    * Logging into Heroku CLI and checked the logs.
+    * Tried installing psycopg-binary.
+    * Reinstalled Psycopg. 
+    * Tried cloning this and running the commands through Gitpod instead as assumed maybe there was a set up issue with my VSCode however no luck with any of  these. 
+   * Requests had been previously imported but I hadn’t included this within my requirements.txt file, this stopped the particular error from appearings and I was able to progress passed the initial import db command.
+* Second bug = Runtime error appeared when running `db.create_all()`, suggesting that I am trying to perform an operation that requires an application context.
+* Outcome = Added `with app.app_context():` before `db.create_all()`. This allowed the database including all tables and columns to be created successfully.
+
+Validating the account page with W3C:
+* Bug = The page was returning a 401 error meaning authentication is required.
+* Outcome = Fixed by adding additional logic within the flask route to handle when a user is not authenticated; adding empty lists for the various fields. This allowed it to be through the validator.
