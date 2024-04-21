@@ -270,6 +270,27 @@ Result = Fail: There is currently functionality which has the appearance of a me
     <img src="bonsai_bay/static/assets/user-stories/message-seller-modal.png">
 </details>
 
+## Other Testing
+Google Developer tools:
+* I have continuously tested and played around with many different resolutions throughout developement, to ensure there is no unexpected behaviour.
+
+Testing on other browsers:
+* Google Chrome.
+* Microsoft Edge.
+* Firefox.
+* Safari (didn't work as intended)
+
+Devices:
+* Google Pixel.
+* Samsung S10.
+* Ipad
+* Dell Inspiron (Windows 11).
+* Lenovo laptop
+
+Other users:
+* My friend Aaron Smyth has tested the site on his Apple laptop in the Safari browser (didn't work as intended, see unresolved bugs)
+* My partner Laura Gibbons has tested the site herself on different browsers on her Google Pixel.
+
 ## Bugs:
 Flask migrations:
 * Bug = After removing the seller table from the database model, it would not allow the flask migration to take place. It was flagging up that it there were dependant objects so it was not possible to drop the listing_seller_id_fkey
