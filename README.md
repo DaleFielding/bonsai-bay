@@ -195,6 +195,8 @@ This table stores information about items saved by users. Each saved item has a 
     <img src="resources/wireframe-404-page.png">
   </details>
 
+>Note; the decision was made to slightly alter the design during developement; some of the wording has been altered and; more fields have been included in the forms. I have also included further modals for checking if they want a listing to be deleted and also a mock message seller form.
+
 ### Surface
 #### Habits and conventions:
 Users will navigate through the site by clicking on the links in the navbar, scrolling down the pages, through clicking on the various buttons and interactive elements within the site.
@@ -278,7 +280,7 @@ There is use of a dark red for warning buttons (#5d091d)
     * When clicked this opens the item page.
     * A remove button; this is currently disabled but will be a future feature.
 
-  **Note. the ability to create, read, update and delete can all be done in full within the create listings and listings sections.**
+>Note. the ability to create, read, update and delete can all be done in full within the create listings and listings sections.
 
 ## Deployment
 The project was deployed as a relational database from [ElephantSQL](https://www.elephantsql.com/) to [Heroku](https://www.heroku.com/) 
@@ -321,7 +323,7 @@ PORT : 5000<br>
 SECRET_KEY : ENTER_YOUR_SECRET_KEY_HERE<br>
 DATABASE_URL : ENTER_THE_URL_CREATED_IN_ELEPHANTSQL<br>
 DEBUG : TRUE<br>
-Note, if you have any other environment variables, be sure to include these also.
+>Note, if you have any other environment variables, be sure to include these also.
 * Paste your URL from ElephantSQL in this section.
 * Click on ‘automatic deploys’ and the ‘create button’, Heroku will the start building the app.
 * Select ‘More’ at the top of the page and then ‘run console’. 
