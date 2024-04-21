@@ -345,4 +345,35 @@ This means making a copy of the original repository on a GitHub account, for the
 * Type git clone and paste the URL from the clipboard ```$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY```.
 7.Press Enter to create your local clone.
 
+## Technologies Used
+
+### Languages Used
+
+-   [HTML5](https://en.wikipedia.org/wiki/HTML5)
+-   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+-   [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+-   [JQuery](https://en.wikipedia.org/wiki/JQuery)
+-   [Flask](https://en.wikipedia.org/wiki/Flask_(web_framework))
+-   [SQLAlchemy](https://en.wikipedia.org/wiki/SQLAlchemy)
+-   [PostgresSQL](https://en.wikipedia.org/wiki/PostgreSQL)
+
+### Frameworks, Libraries & Programs Used
+
+* [Bootstrap 5.3.3:](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+    - Bootstrap was used to assist with the responsiveness of all pages.
+* [Font Awesome:](https://fontawesome.com/)
+    - Font Awesome was used on the social media links in the footer and a search icon for the search bar.
+* [Google Fonts:](https://fonts.google.com/)
+    - Google fonts were used to import the chosen fonts that were used throughout the webpages.    
+* [Git](https://git-scm.com/)
+    - Git was used for version control to commit to Git and Push to GitHub.
+* [GitHub:](https://github.com/)
+    - GitHub is used to store the project’s code after being pushed from Git.
+* [Visual Studio Code](https://code.visualstudio.com/)
+    - Visual Studio Code was used as the IDE for the project.
+* [Figma](https://www.figma.com/login?is_not_gen_0=true) 
+    - Figma was used to complete further wireframes for mobile, tablet and desktop pages. Also the database table schema.
+* [Designer(Microsoft Copilot)](https://designer.microsoft.com/) 
+    - Designer was used to create the logo and the main image of a bonsai being held.
+
 
