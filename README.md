@@ -160,8 +160,18 @@ I have listed the pages below including the features they will contain.
 ### Skeleton
 
 #### Table Schema
+![Table schema](resources/table-schema.png)<br>
 
-![Table schema](resources/table-schema.png)
+* User:<br>
+This table stores user details. Each user has a unique id, username, and email. The password_hash stores the hashed password for security. The location field stores the user’s location. The saved_items field is a relationship that links to the SavedItem table.
+
+* Listing:<br> 
+This table stores information about listings. Each listing has a unique id and various attributes like title, species, tree_type, indoor_outdoor, description, height, price, care_tips, image, and date_added. The user_id field links to the User table, storing who added the listing.
+
+* SavedItem:<br> 
+This table stores information about items saved by users. Each saved item has a unique id. The listing_id and user_id fields link to the Listing and User tables respectively, indicating which user saved which listing.
+
+
 
 #### Wireframes
 
