@@ -376,4 +376,13 @@ This means making a copy of the original repository on a GitHub account, for the
 * [Designer(Microsoft Copilot)](https://designer.microsoft.com/) 
     - Designer was used to create the logo and the main image of a bonsai being held.
 
+## Acknowledgements 
+* Mitko Bachvarov - My Code Institute Mentor for helpful feedback.
 
+* Adam Cross - Course Curriculum manager at Code Institute for their support
+
+* Paul Bowers - My Course tutor for their useful tutorial sessions, in particular guidance around creating a search function.
+
+* Laura Gibbons - My partner for her user feedback 
+
+* Aaron Smyth - for his user feedback on Safari browser 
