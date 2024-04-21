@@ -280,4 +280,69 @@ There is use of a dark red for warning buttons (#5d091d)
 
   **Note. the ability to create, read, update and delete can all be done in full within the create listings and listings sections.**
 
+## Deployment
+The project was deployed as a relational database from [ElephantSQL](https://www.elephantsql.com/) to [Heroku](https://www.heroku.com/) 
+
+### ElephantSQL steps:
+* Navigate to [ElephantSQL.com](https://www.elephantsql.com/) and select:
+  * ‘Get a managed database today’.
+  * Then ‘Try now for FREE’ in the TINY TURTLE database plan.
+  * Then ‘Log in with GitHub’ and authorize ElephantSQL with your selected GitHub account.
+* In the Create new team form complete the appropriate fields then Click “Create Team”, this should have created your account.
+* When in the account select “Create New Instance”.
+* Set up your plan:
+    * Give your plan the name of your project.
+    * Select the Tiny Turtle (Free) plan.
+    * Tags can be left blank.
+* Select a data centre closest to you; EU-West-1 (Ireland) is the appropriate one for UK based on the options.
+* Select ‘Review’.
+* Select ‘Create instance’
+* The database should now be created.
+* Click the database instance name for this project in your dashboard.
+* Then copy the url.
+
+### Heroku
+* Create a couple of files:
+  * `pip3 freeze --local > requirements.txt` to create requirements.txt file (contains the dependencies). 
+  * `echo web: python (Your python file that runs the application here) > Procfile` to create the Procfile, Be sure to check the file and contends as there may be a blank line at the end of the line of code, which will need to be removed and then saved.
+* Commit these changes to github.
+* Login/Sign up to [Heroku.com](https://www.heroku.com).
+* Click ‘create new app’.
+* Provide your app name (must be unique) and select a region.
+* Click ‘create app’.
+* Connect the Heroku app to the GitHub repository by selecting GitHub in the deployment section, and then finding the specific repository.
+
+* Once connected, config variables need to be included to build the app. 
+   * Click on the settings tab.
+   * Then reveal config vars button. 
+   * Enter the environment key/value variables from your env.py file, should look something like the below:<br>.
+IP : 0.0.0.0<br> 
+PORT : 5000<br>
+SECRET_KEY : ENTER_YOUR_SECRET_KEY_HERE<br>
+DATABASE_URL : ENTER_THE_URL_CREATED_IN_ELEPHANTSQL<br>
+DEBUG : TRUE<br>
+Note, if you have any other environment variables, be sure to include these also.
+* Paste your URL from ElephantSQL in this section.
+* Click on ‘automatic deploys’ and the ‘create button’, Heroku will the start building the app.
+* Select ‘More’ at the top of the page and then ‘run console’. 
+* Type python3 in the console, then run the below:
+  * from (enter your project package name here) import db.
+  * db.create_all()... This should hopefully build your database.
+  * Then you are free to exit the terminal.
+  * Click on ‘Open app’ at the top of the dashboard, which should open your deployed webpage with Heroku in a new tab.
+
+### Forking a GitHub Repository
+This means making a copy of the original repository on a GitHub account, for the purpose of viewing/making changes to it but without affecting the original repository. Steps for this are below:
+* Go to the GitHub repository.
+* Click on Fork button in the upper right hand corner.
+
+### Cloning the repository is possible by following these steps:
+* Go to the GitHub repository. 
+* Locate the Code button above the list of files and select. 
+* Select if you prefer to clone using HTTPS, SSH, or Github CLI and click the copy button to copy the URL to your clipboard.
+* Open Git Bash.
+* Change the current working directory to the one where you want the cloned directory.
+* Type git clone and paste the URL from the clipboard ```$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY```.
+7.Press Enter to create your local clone.
+
 
