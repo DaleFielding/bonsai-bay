@@ -2,7 +2,6 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-from flask_compress import Compress
 
 # env imported if the os can find an existing filepath for the env.py file
 if os.path.exists("env.py"):
