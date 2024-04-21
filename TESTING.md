@@ -309,3 +309,16 @@ Creating the database with Heroku:
 Validating the account page with W3C:
 * Bug = The page was returning a 401 error meaning authentication is required.
 * Outcome = Fixed by adding additional logic within the flask route to handle when a user is not authenticated; adding empty lists for the various fields. This allowed it to be through the validator.
+
+## Unresolved Bugs:
+LocationIQ API accuracy:
+* Bug = Location API is not always able to pick up a location.
+* Outcome = I may consider implementing a different API should this issue continue going forward.
+
+Safari browser compatibility:
+* Bug = When clicking on the location icon nothing happens, it doesn’t appear to be trying to access the location.
+* Outcome = Will look to implement working functionality in the future.
+
+Remove button for saved items: 
+* Bug = Nothing would happen when clicking on the button to remove.
+* Outcome = I had followed a very similar method to the delete_listings route (which works as intended), however I was unable to figure out why this approach was not working with the route to remove a saved item. I had made a few tweaks but unfortunately was unable to resolve. I hadn’t been left with much time before due to having various other set backs with the project, the decision was made to leave out this functionality for now, with a view to implement this as a future feature.
