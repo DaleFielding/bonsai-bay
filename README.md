@@ -376,6 +376,13 @@ This means making a copy of the original repository on a GitHub account, for the
 * [Designer(Microsoft Copilot)](https://designer.microsoft.com/) 
     - Designer was used to create the logo and the main image of a bonsai being held.
 
+# Code 
+### Templates 
+*  [Bootstrap Library](https://getbootstrap.com/docs/5.3/getting-started/introduction/ "link to Bootstrap Docs"):
+    * Has been used through the project to assist with making the pages responsive. 
+    * I have used some template code from Bootstrap documentation, such as the form, modals, accordion and navbar.
+    * I have made amendments to these in order to suit the chosen design for the website.
+
 ## Acknowledgements 
 * Mitko Bachvarov - My Code Institute Mentor for helpful feedback.
 
