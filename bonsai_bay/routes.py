@@ -80,7 +80,6 @@ def register():
     password = request.form.get("password")
     location = request.form.get("location")
 
-
     # Check if the user already exists
     if User.query.filter_by(username=username).first() or \
             User.query.filter_by(email=email).first():
@@ -89,14 +88,14 @@ def register():
             "message": "User already exists, please login if this is you."
         })
 
-        # Create a new user object and save it to the database
-        new_user = User(username=username, email=email, location=location)
-        new_user.password = password
-        db.session.add(new_user)
-        db.session.commit()
-        return jsonify({
-            "success": True, "message": "Registration was successful."
-        })
+    # Create a new user object and save it to the database
+    new_user = User(username=username, email=email, location=location)
+    new_user.password = password
+    db.session.add(new_user)
+    db.session.commit()
+    return jsonify({
+        "success": True, "message": "Registration was successful."
+    })
 
 
 # User Login
