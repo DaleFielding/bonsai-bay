@@ -214,3 +214,58 @@ Saved Items Test:
 * Expected: The saved items card should display, when clicked this should load the item page for that listing displaying the relevant details.
 * Result: Pass.
 
+## Testing User Stories 
+#### As a user, I would like to access a digital marketplace specifically for the sale and purchase of bonsai trees.<br>
+Result = Pass<br>
+<details><summary>Homepage screenshot</summary>
+    <img src="bonsai_bay/static/assets/user-stories/homepage-screenshot.png">
+</details>
+
+#### As a user, I would like to be able to create an account where I can store my information.<br>
+Result = Pass<br>
+<details><summary>Login/register modal</summary>
+    <img src="bonsai_bay/static/assets/user-stories/login-register-modal.png">
+</details>
+
+<details><summary>Account page displaying user information</summary>
+    <img src="bonsai_bay/static/assets/user-stories/account-page-user-logged-in.png">
+</details>
+
+#### As a user, I would like to be able to create and display listings for sale and manage these by amending or deleting.<br>
+Result = Pass<br>
+<details><summary>Create listing form</summary>
+    <img src="bonsai_bay/static/assets/user-stories/create-listing-form.png">
+</details>
+<details><summary>Created listing displayed</summary>
+    <img src="bonsai_bay/static/assets/user-stories/created-listing-displayed.png">
+</details>
+<details><summary>Edit Listing form (prepopulated)</summary>
+    <img src="bonsai_bay/static/assets/user-stories/edit-listing-form.png">
+</details>
+<details><summary>Delete listing modal</summary>
+    <img src="bonsai_bay/static/assets/user-stories/delete-listing.png">
+</details>
+
+#### As a user, I would like to view/search for bonsai trees on the site that people would like to sell.<br>
+Result = Pass<br>
+<details><summary>Results displayed from search function</summary>
+    <img src="bonsai_bay/static/assets/user-stories/results-displayed-from-search-function.png">
+</details>
+
+#### As a user, I would like to view information about the product such as; product, description, location etc.<br>
+Result = Pass<br>
+<details><summary>Item page displaying information about the listing</summary>
+    <img src="bonsai_bay/static/assets/user-stories/item-page-displaying-listing.png">
+</details>
+
+#### As a user, I would like to filter items to refine my search.<br>
+Result = Fail: This has not currently been implemented but will be as a future feature, the filter does appear on the web page for display purposes. <br>
+<details><summary>Filter button</summary>
+    <img src="bonsai_bay/static/assets/user-stories/filter-button-displayed.png">
+</details>
+
+#### As a user, I would like to be able to contact the seller.<br>
+Result = Fail: There is currently functionality which has the appearance of a message being sent. However the seller does not receive this message and it isn’t stored within the database. This will be included as a future feature.<br>
+<details><summary>Message modal to contact the seller</summary>
+    <img src="bonsai_bay/static/assets/user-stories/message-seller-modal.png">
+</details>
