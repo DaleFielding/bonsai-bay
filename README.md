@@ -172,7 +172,6 @@ This table stores information about listings. Each listing has a unique id and v
 This table stores information about items saved by users. Each saved item has a unique id. The listing_id and user_id fields link to the Listing and User tables respectively, indicating which user saved which listing.
 
 
-
 #### Wireframes
 
   <details><summary>Homepage</summary>
@@ -281,6 +280,14 @@ There is use of a dark red for warning buttons (#5d091d)
     * A remove button; this is currently disabled but will be a future feature.
 
 >Note. the ability to create, read, update and delete can all be done in full within the create listings and listings sections.
+
+## Future implementations:
+1. Potential change in choice of location API depending on consistency of functionality.
+2. Safari browser functionality to work as intended. The location function does not appear to be doing anything when the location icon is clicked.
+3. A functioning ‘Filter’ button to allow users to better define the results that are viewed depending on their requirements.
+4. Pagination to be implemented below the listings that are displayed within the homepage in order to reduce the amount of listings that are displayed should the reach over a certain amount.
+5. Functioning ‘Edit’ buttons for email address and password within the users account page.
+6. Functioning ‘Remove’ button for the saved items in the users account page.
 
 ## Deployment
 The project was deployed as a relational database from [ElephantSQL](https://www.elephantsql.com/) to [Heroku](https://www.heroku.com/) 
