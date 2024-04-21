@@ -104,4 +104,113 @@ Details of the JSLint results for each page can be seen below:
 #### Env.py:
 * One line longer than 80 characters. Fixed this by splitting across 3 lines.
 
+## Manual Testing 
+General Responsiveness Test:
+* Test: Check the website on different device sizes and resolutions.
+* Expected: The website should be responsive on all device sizes and resolutions.
+* Result: Pass.
+
+Location API Test:
+* Test: Check if the city is displayed within the site.
+* Expected: The website should be connected to a location API (locationiq.com) where location data is fetched and city is displayed within the site.
+* Result: Pass for all except on the ipad (Safari), nothing seems to happen when the location icon was clicked.<br>
+I did also run into some temporary issues, that hasn’t happened until testing and is now working fine on all browsers (except Safari). The issues were:
+  * Location not found when trying on desktop.
+  * Incorrect location picked up when using edge.
+<br>**I believe this must be to do with the specific API that I’m using, and will potentially look into an alternative choice should this continue to happen in the future.**
+
+Active Buttons and Anchor Tags Test:
+* Test: Hover and click on all active buttons and anchor tags on the site.
+* Expected: All active buttons and anchor tags on the site should provide visual responses to hover and click.
+* Result: Pass.
+
+Navbar Test:
+* Test: Click on the logo and site name in the navbar.
+* Expected: It should direct to/reload the homepage.
+* Result: Pass.
+
+Site Name Display Test:
+* Test: Check the site name on smaller device sizes.
+* Expected: The site name should disappear on smaller device sizes.
+* Result: Pass.
+
+Browse Bonsai links Test:
+* Test: Click on the ‘Browse Bonsai’ links under the introduction message and within the navbar.
+* Expected: ‘Browse Bonsai’ should scroll the view down to where the listings are displayed on the homepage.
+* Result: Pass.
+
+Search Links Test:
+* Test: Click on the ‘Search’ link.
+* Expected:  ‘Search’ should open up a search bar and a search icon.
+* Result: Pass.
+
+Search Function Test:
+* Test: Type in various search queries then press enter on the keyboard and with the search icon.
+* Expected:  It should scroll the page down to where the listings are. There should only be results displayed that meet the search query. If not results, it should display a dynamic message confirming ‘No results found for (query)’.
+* Result: Pass.
+
+Account Link Test (not logged in):
+* Test: Click on the ‘Account’ link in the navbar and fill in the login or register forms.
+* Expected: Initially this will pop up with a model containing two forms (login or register). They should contain form validation and display colourful alerts to indicate whether a submission has been successful.
+* Result: Pass.
+
+Account Link Test (logged in):
+* Test: Click on the ‘Account’ link in the navbar.
+* Expected: This should redirect the user to their account page.
+* Result: Pass.
+
+Login Form Test:
+* Test: Type into all fields and click on ‘Login’.
+* Expected: It should let you know if input does not meet validation requirements. When ‘Login’ is clicked the user should be added to the database. A message should be displayed to confirm if login was successful or unsuccessful. If successful the user should be directed to their account page. 
+* Result: Pass.
+
+Registration Form Test:
+* Test: Type into all fields and click on ‘Register’ .
+* Expected: It should let you know if input does not meet validation requirements, it should attempt to find a location (City) when the location icon is clicked. When ‘Register’ is clicked the user should be added to the database. A message should be displayed to confirm if registration was successful or unsuccessful. 
+* Result: Pass.
+
+Footer Test:
+* Test: Check the footer for social media links, copyright, address for the company, location finder, and contact details.
+* Expected: The footer should contain social media links for Facebook, Twitter and Instagram. Copyright 2024 should be included. It should contain an address for the company, location link. and contact details. The location link should direct the user to an address in google maps.
+* Result: Pass.
+
+Item Page Test:
+* Test: Check information is displayed correctly.
+* Expected: It should display the specific details of the listing such as; description, care tips, features, date added, image, title, price and seller location. And ‘Back to Homepage’ should direct the user back to the homepage.
+* Result: Pass.
+
+Message Seller button:
+* Test: Check message seller button functionality.
+* Expected: When click a model should appear with a text area for a message to be typed, a ‘Go Back’ button that closes the modal, and a ‘Send’ button that displays a message to say ‘Your message has been sent.
+* Result: Pass.
+
+Save Item Button:
+* Test: Check save item button functionality.
+* Expected: When clicked that particular item should be added to the users account page under saved items.
+* Result: Pass.
+
+Account Page Test:
+* Test: Check the account page displays relevant user data in the appropriate fields.
+* Expected: The account page should contain a button to logout. It should display a header that displays “(Username)’s Account”. It should contain an accordion containing ‘Email + password’, ‘Create New Listing’, ‘Listings’, and ‘Saved Items’. Listings and saved items should display item cards of the appropriate listings.
+* Result: Pass.
+
+Create Listing Test:
+* Test: Check create listing form within functions correctly.
+* Expected: The form should require all fields to be completed and also let the user know if input is invalid. When ‘Create Listing’ is clicked, a listing should be added to the database for that user, then displayed in the listings section in the users account and in listings section on the home page.
+* Result: Pass.
+
+Edit Listing Test:
+* Test: Check edit listing functions correctly.
+* Expected: When ‘Edit’ is clicked, a modal form should appear that is pre-populated with the listing information. The form should require all fields to be completed and also let the user know if input is invalid. When ‘Save Change’ is clicked it should update the details of the listing in the database, then these changes should be reflected throughout the site.
+* Result: Pass.
+
+Delete Listing Test:
+* Test: Check delete listing functions correctly.
+* Expected: When ‘Delete’ is clicked, a modal should appear which ask the user ‘Are you sure you want to delete this listing?’ There should be buttons for No and Yes which work appropriately.
+* Result: Pass.
+
+Saved Items Test:
+* Test: Check the saved item cards are displayed and function corrected.
+* Expected: The saved items card should display, when clicked this should load the item page for that listing displaying the relevant details.
+* Result: Pass.
 
