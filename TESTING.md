@@ -7,6 +7,8 @@ I believe that manual testing can be better when you only need to run a test a c
 
 For this project, I have used manual testing throughout development and post development so that I can take a hands-on approach and ensure everything works smoothly.
 
+I have ensured that my requirements.txt file only includes the necessary dependencies for the apps functionality and removed any unused dependencies. Procfile is declared with the necessary code to allow the app for function with Heroku.
+
 ## Validation 
 ### WSC - Markup Validation Service
 * Homepage (including base.html and index.html):
