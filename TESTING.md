@@ -316,6 +316,22 @@ Storing API key:
 * Bug = The location function was working perfectly with the API passed in, however when this key was stored in a variable in another folder then passed into the location function it didn’t work and was displaying errors. 
 * Outcome = Managed to get this working by creating a route called get_city to handle the API key and keep it server side, then return the relevant data to client side. To be used within the determineCity function. 
 
+Form handling:
+* Bug = If a form field was not completed in the create listing form or edit listing form, an error would occur when trying to submit.
+* Outcome = Managed to fix this error by ensuring the `required`; attribute was included within all of the relevant form fields
+
+Account route:
+* Bug = When trying to access the account url directly when the user wasn’t logged in, this would display an error message saying unauthorised.
+* Outcome = Managed to fix this error by changing the route so that it redirects the user to the home page if not logged.
+
+Save item button:
+* Bug = When trying to save an item when the user wasn’t logged in, this would display an error saying unauthorised.
+* Outcome = Fixed this by adding a Flask if else statement to disable the save item button if a user isn’t logged in.
+
+Debug status:
+* Bug = Even though I had ensured debug was set to False within the production environment, it was still displaying errors that would suggest debug was still on. 
+* Outcome = I believe this was due to python interpreting “False” as True, due to the a value being enclosed within quotes (doesn’t work without the quotes). Fixed this issue by amending the app.py script so this carried out a check to see if debug status is True; which would set to False if not the case.
+
 Creating the database with Heroku:
 * Bug = When trying to import the database this was encountering an error relation to sqlalchemy being unable to create an engine.
 * Attempts to fix:
