@@ -109,9 +109,19 @@
       action="{{ url_for('save_item', listing_id=listing.id) }}"
       method="POST"
     >
+      {% if current_user.is_authenticated %}
       <button type="submit" class="item-btn btn btn-secondary animate-click">
         Save Item
       </button>
+      {% else %}
+      <button
+        type="submit"
+        class="item-btn btn btn-secondary animate-click"
+        disabled
+      >
+        Login to Save Item
+      </button>
+      {% endif %}
     </form>
   </div>
   <div class="col-10 col-sm-8 col-md-6 col-lg-4 item-btn-container">
