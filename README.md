@@ -58,9 +58,10 @@ The purpose of this site is to provide a platform for people of all ages that ar
 5. As a user, I would like to view information about the product such as; product, description, location etc.
 6. As a user, I would like to filter items to refine my search.
 7. As a user, I would like to be able to contact the seller.
+8. As a user, I would like my password to be secure.
 
 ### Site Objectives
-1. To appeal to bonsai enthusiasts and potential bonsai enthusiasts of any age.
+1. To appeal to people of any age that are interested/may be interested in bonsai.
 2. To be responsive and functional.
 3. To meet all accessibility requirements, allowing anyone to use the site regardless of their abilities/needs.
 4. To include an appropriate data model for the website, that functions as intended.
