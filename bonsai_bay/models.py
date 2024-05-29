@@ -19,7 +19,7 @@ class User(db.Model, UserMixin):
 
     @password.setter
     def password(self, password):
-        # Generate password hash from the padssword
+        # Generate password hash from the password
         self.password_hash = generate_password_hash(password)
 
     def verify_password(self, password):
