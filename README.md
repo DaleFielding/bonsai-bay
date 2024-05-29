@@ -65,6 +65,7 @@ The purpose of this site is to provide a platform for people of all ages that ar
 2. To be responsive and functional.
 3. To meet all accessibility requirements, allowing anyone to use the site regardless of their abilities/needs.
 4. To include an appropriate data model for the website, that functions as intended.
+5. To include appropriate password security measures such as hashing and read prevention.
 
 ## Design
 ### Strategy 
