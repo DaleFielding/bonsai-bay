@@ -272,6 +272,12 @@ Result = Fail: There is currently functionality which has the appearance of a me
     <img src="bonsai_bay/static/assets/user-stories/message-seller-modal.png">
 </details>
 
+### As a user, I would like my password to be secure.
+Result = Pass: The below code demonstrates how the password is hashed, the provide password is then compared with the stored password to see if is a match. An AttributeError is raised if attempts are made to read the password directly.<br>
+<details><summary>Code displaying password security measures</summary>
+    <img src="bonsai_bay/static/assets/user-stories/user-model-code.png">
+</details>
+
 ## Other Testing
 Google Developer tools:
 * I have continuously tested and played around with many different resolutions throughout developement, to ensure there is no unexpected behaviour.
